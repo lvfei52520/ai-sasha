@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AI莎莎 · 普惠教育 & 开发服务</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a0a1a;--bg2:#12122a;--card:rgba(255,255,255,.04);--card-h:rgba(255,255,255,.07);--t1:#f0f0f5;--t2:#9898b0;--t3:#707088;--ac:#4a9fff;--ac2:#a855f7;--bd:rgba(255,255,255,.06);--grad:linear-gradient(135deg,#4a9fff,#a855f7)}
+html{font-size:16px;-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--t1);line-height:1.6;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,26,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 24px}
+.nav-logo{font-size:1.25rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--t2);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--ac)}
+section{padding:100px 24px}
+.sec-inner{max-width:1100px;margin:0 auto}
+.sec-label{font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--ac);margin-bottom:12px}
+.sec-title{font-size:clamp(1.5rem,4vw,2.5rem);font-weight:800;margin-bottom:20px;line-height:1.25}
+.sec-desc{font-size:1.05rem;color:var(--t2);max-width:640px;margin-bottom:48px;line-height:1.8}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding-top:80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(74,159,255,.08),transparent),radial-gradient(ellipse 50% 40% at 70% 60%,rgba(168,85,247,.06),transparent)}
+.hero-content{position:relative;z-index:1}
+.hero h1{font-size:clamp(2.5rem,7vw,5rem);font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:20px}
+.hero .sub{font-size:clamp(1rem,2.5vw,1.35rem);color:var(--t2);margin-bottom:36px;font-weight:400}
+.hero .cta{display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-block;padding:14px 36px;border-radius:12px;font-size:.9375rem;font-weight:600;text-decoration:none;transition:all .25s;border:none;cursor:pointer}
+.btn-primary{background:var(--grad);color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(74,159,255,.3)}
+.btn-outline{border:1px solid var(--bd);color:var(--t1);background:transparent}
+.btn-outline:hover{border-color:var(--ac);color:var(--ac)}
+#particles{position:absolute;inset:0;pointer-events:none;z-index:0}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.about-text p{color:var(--t2);margin-bottom:16px;font-size:1rem;line-height:1.9}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat-card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:28px 24px;text-align:center;transition:all .3s}
+.stat-card:hover{background:var(--card-h);border-color:rgba(74,159,255,.2)}
+.stat-num{font-size:2.2rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-label{font-size:.8125rem;color:var(--t3);margin-top:6px}
+.courses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.course-card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:32px 28px;transition:all .3s}
+.course-card:hover{background:var(--card-h);border-color:rgba(74,159,255,.25);transform:translateY(-4px)}
+.course-icon{font-size:2.5rem;margin-bottom:16px}
+.course-card h3{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.course-card p{font-size:.875rem;color:var(--t3);line-height:1.7}
+.course-tag{display:inline-block;margin-top:16px;padding:4px 12px;border-radius:100px;font-size:.6875rem;font-weight:600;background:rgba(74,159,255,.1);color:var(--ac)}
+.acc{border:1px solid var(--bd);border-radius:14px;margin-bottom:10px;overflow:hidden;transition:border-color .3s}
+.acc:hover{border-color:rgba(74,159,255,.2)}
+.acc-h{display:flex;align-items:center;gap:12px;width:100%;padding:18px 22px;border:none;background:rgba(255,255,255,.025);text-align:left;cursor:pointer;color:var(--t1);font-size:.95rem;font-weight:600;transition:background .2s}
+.acc-h:hover{background:rgba(255,255,255,.05)}
+.acc-h .arw{color:var(--ac);font-size:.8rem;transition:transform .3s}
+.acc-h.open .arw{transform:rotate(90deg)}
+.acc-b{overflow:hidden;max-height:0;transition:max-height .45s cubic-bezier(.4,0,.2,1)}
+.acc-b.open{max-height:4000px}
+.acc-inner{padding:20px 22px 24px;font-size:.9rem;color:var(--t2);line-height:1.9;border-top:1px solid var(--bd)}
+.acc-inner em,.acc-inner .em{font-style:normal;color:var(--ac);font-weight:600}
+.acc-inner h4{font-size:.9rem;color:var(--t1);margin:16px 0 6px}
+.acc-inner ul{padding-left:18px;margin:8px 0}
+.acc-inner li{margin-bottom:4px;font-size:.875rem}
+.cases-list{display:flex;flex-direction:column;gap:16px}
+.case-link{text-decoration:none;color:inherit;display:block}
+.case-item{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:32px;display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;transition:all .3s;cursor:pointer}
+.case-link:hover .case-item{background:var(--card-h);border-color:rgba(168,85,247,.25)}
+.case-num{width:48px;height:48px;border-radius:14px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800;color:#fff;flex-shrink:0}
+.case-info h3{font-size:1.05rem;font-weight:700;margin-bottom:4px}
+.case-info p{font-size:.875rem;color:var(--t3)}
+.case-meta{font-size:.75rem;color:var(--t3);text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.case-meta span{display:block;color:var(--ac);font-weight:600;font-size:.8125rem}
+.case-arrow{color:var(--t3);font-size:1.1rem}
+.contact-bar{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+.contact-chip{display:flex;align-items:center;gap:12px;padding:14px 24px;border-radius:14px;background:var(--card);border:1px solid var(--bd);color:var(--t1);text-decoration:none;font-weight:500;transition:all .25s}
+.contact-chip:hover{background:var(--card-h);border-color:var(--ac)}
+footer{text-align:center;padding:40px 24px;color:var(--t3);font-size:.8125rem;border-top:1px solid var(--bd)}
+@media(max-width:768px){section{padding:72px 20px}.about-grid{grid-template-columns:1fr;gap:32px}.nav-links{display:none}.case-item{grid-template-columns:1fr;gap:16px}.case-meta{flex-direction:row;justify-content:space-between;align-items:center;text-align:left;width:100%}}
+@media(max-width:480px){.hero h1{font-size:2rem}.courses-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><div class="nav-logo">AI · 莎莎</div><ul class="nav-links"><li><a href="#about">关于</a></li><li><a href="#courses">课程</a></li><li><a href="#outline">大纲</a></li><li><a href="#cases">案例</a></li><li><a href="#contact">联系</a></li></ul></div></nav>
+<section class="hero" id="hero"><canvas id="particles"></canvas><div class="hero-content"><h1>AI莎莎</h1><p class="sub">AI普惠教育 · 直播教学 · 企业AI应用落地</p><div class="cta"><a href="#courses" class="btn btn-primary">查看课程</a><a href="#contact" class="btn btn-outline">联系我</a></div></div></section>
+<section id="about"><div class="sec-inner"><div class="sec-label">About</div><h2 class="sec-title">让AI不再高冷，让每个人都能用起来</h2><div class="about-grid"><div class="about-text"><p>前美年集团团队经理，现云千源广告传媒金牌直播讲师。深耕直播教学3年，带过200+新人从0到变现。2026年全面拥抱AI——我发现直播与AI的结合是普通人弯道超车的最佳路径。</p><p>我不讲玄学，只讲落地。从AI工具实操到企业AI内训，从智能话术到短视频批量生产，我把最前沿的AI能力翻译成最接地气的解决方案。</p></div><div class="about-stats"><div class="stat-card"><div class="stat-num">3年+</div><div class="stat-label">直播教学经验</div></div><div class="stat-card"><div class="stat-num">200+</div><div class="stat-label">带教学员数</div></div><div class="stat-card"><div class="stat-num">20+</div><div class="stat-label">企业AI服务案例</div></div><div class="stat-card"><div class="stat-num">10万+</div><div class="stat-label">课程总观看人次</div></div></div></div></div></section>
+<section id="courses" style="background:var(--bg2)"><div class="sec-inner"><div class="sec-label">Courses</div><h2 class="sec-title">AI普惠课程</h2><p class="sec-desc">从0基础到实战应用，覆盖直播、短视频、办公三大场景。不堆术语，只教你能马上用的AI技能。</p><div class="courses-grid"><div class="course-card"><div class="course-icon">🚀</div><h3>AI入门实战课</h3><p>零基础7天上手，从ChatGPT到AI绘画，覆盖主流AI工具的操作方法和使用技巧。</p><span class="course-tag">入门</span></div>
+<div class="course-card"><div class="course-icon">🎙️</div><h3>直播 + AI 提效课</h3><p>用AI生成直播话术、自动回复评论、智能分析数据——让你的直播间效率翻倍。</p><span class="course-tag">进阶</span></div>
+<div class="course-card"><div class="course-icon">🎬</div><h3>AI短视频创作营</h3><p>AI写文案 + AI配音 + AI剪辑，一条龙批量生产短视频，一个人干一个团队的活。</p><span class="course-tag">热门</span></div>
+<div class="course-card"><div class="course-icon">💼</div><h3>职场AI办公提效</h3><p>PPT自动生成、Excel智能分析、文档一键总结——职场人必备的AI技能包。</p><span class="course-tag">实用</span></div>
+<div class="course-card"><div class="course-icon">🤖</div><h3>企业AI定制内训</h3><p>针对企业需求量身定制AI培训方案，从工具选型到流程落地，全链路陪跑。</p><span class="course-tag">企业</span></div>
+<div class="course-card"><div class="course-icon">🌟</div><h3>新人AI陪跑计划</h3><p>30天1对1陪跑，从赛道选择到AI工具部署，帮你搭建可复制的AI工作流。</p><span class="course-tag">陪跑</span></div></div></div></section>
+<section id="outline"><div class="sec-inner"><div class="sec-label">Outline</div><h2 class="sec-title">教学大纲</h2><p class="sec-desc">核心课程内容结构，帮你了解每门课会学到什么</p><h3 style="font-size:1.05rem;color:var(--ac);margin-bottom:18px">📱 抖音新人赛道认知课</h3>
+<div class="acc"><button class="acc-h" onclick="toggleAcc(this)"><span class="arw">▶</span> 一、抛话题（前10秒）</button><div class="acc-b"><div class="acc-inner"><p>90%的新人输在起点——你学的不是直播，是背词。话术救不了选错赛道的人。<span class="em">你凭什么认为你选的赛道能跑出来？</span></p></div></div></div>
+<div class="acc"><button class="acc-h" onclick="toggleAcc(this)"><span class="arw">▶</span> 二、塑造价值</button><div class="acc-b"><div class="acc-inner"><p>市面上99%的新人课在教话术。这是本末倒置——话术是放大器，不是发动机。赛道不对，放大一万倍还是零。</p><p>我做了三年，带过200多个新人。<span class="em">跑出来的那批人，不是最能说的，是最会选的。</span></p></div></div></div>
+<div class="acc"><button class="acc-h" onclick="toggleAcc(this)"><span class="arw">▶</span> 三、三步定赛道（核心方法）</button><div class="acc-b"><div class="acc-inner"><h4>第一步：看大盘</h4><p>打开抖音搜索，看三个数据：头部月销、腰部体量、近30天新号趋势。</p><h4>第二步：切缝隙</h4><p>找大盘里<span class="em">供小于求的缝隙</span>——看前20个视频的评论区判断供给结构。</p><h4>第三步：测数据</h4><p>每天2条短视频，连发10天。10天跑不出千次播放换缝隙，再10天跑不出换赛道。</p></div></div></div>
+<div class="acc"><button class="acc-h" onclick="toggleAcc(this)"><span class="arw">▶</span> 四、收尾 + 自检表</button><div class="acc-b"><div class="acc-inner"><p><span class="em">做对选择比做对动作重要一百倍。</span></p><p>8格自检表：赛道/天花板/腰部区间/新号趋势/缝隙人群/供给结构/测试天数/最高播放。填不满别开播。</p></div></div></div>
+<h3 style="font-size:1.05rem;color:var(--ac);margin:32px 0 18px">🎬 快手电商起步三件事</h3>
+<div class="acc"><button class="acc-h" onclick="toggleAcc(this)"><span class="arw">▶</span> 抛话题 + 核价值</button><div class="acc-b"><div class="acc-inner"><p>你在快手刷了三个月，一开播在线3个人。不是你不努力，是你把顺序搞反了。</p><p><span class="em">第一，先定赛道再开播。</span>类目决定流量池、客单价、退货率。选一个扎进去。</p><p><span class="em">第二，内容在前，卖货在后。</span>前两周别卖货，每天发2-3条短视频测数据。</p><p><span class="em">第三，10天一个周期用数据迭代。</span>不是感觉好不好，是数据好不好。</p></div></div></div>
+<div class="acc"><button class="acc-h" onclick="toggleAcc(this)"><span class="arw">▶</span> 新人自查清单（三问）</button><div class="acc-b"><div class="acc-inner"><p>1. 你选的类目是什么？（只能选一个）<br>2. 今天发了短视频没有？<br>3. 这条视频的数据记下来没有？</p><p><span class="em">三个问题答不出来，回去做。答得出来，明天继续。</span></p></div></div></div>
+<h3 style="font-size:1.05rem;color:var(--ac);margin:32px 0 18px">🤖 AI + 直播实操课大纲</h3>
+<div class="acc"><button class="acc-h" onclick="toggleAcc(this)"><span class="arw">▶</span> 模块一：AI工具上手（零基础友好）</button><div class="acc-b"><div class="acc-inner"><p>ChatGPT / Claude / Kimi 实操、AI绘画（Midjourney / SD）入门、AI配音工具使用技巧、AI办公三件套提效方案。</p></div></div></div>
+<div class="acc"><button class="acc-h" onclick="toggleAcc(this)"><span class="arw">▶</span> 模块二：AI + 直播全链路</button><div class="acc-b"><div class="acc-inner"><p>AI智能话术生成、AI实时评论回复、AI数据分析看板搭建、AI驱动选品策略、AI虚拟主播入门。</p></div></div></div>
+<div class="acc"><button class="acc-h" onclick="toggleAcc(this)"><span class="arw">▶</span> 模块三：AI短视频批量生产</button><div class="acc-b"><div class="acc-inner"><p>AI选题引擎使用、AI批量写文案、AI自动配音+字幕、AI剪辑工作流搭建、多平台一键分发策略。</p></div></div></div>
+<div class="acc"><button class="acc-h" onclick="toggleAcc(this)"><span class="arw">▶</span> 模块四：企业AI部署实战</button><div class="acc-b"><div class="acc-inner"><p>企业AI知识库搭建、AI客服机器人部署、AI数据中台方案、AI内容工厂搭建、ROI评估和持续优化。</p></div></div></div></div></section>
+<section id="cases" style="background:var(--bg2)"><div class="sec-inner"><div class="sec-label">Cases</div><h2 class="sec-title">教学开发服务案例</h2><p class="sec-desc">真实项目，可验证的效果。点击每个案例查看完整详情。</p><div class="cases-list"><a href="case-detail.html#case-1" class="case-link"><div class="case-item"><div class="case-num">01</div><div class="case-info"><h3>某传媒公司全员AI提效培训</h3><p>30人团队2周密集培训，内容生产提效300%</p></div><div class="case-meta"><span>企业内训</span>2026年5月<span class="case-arrow">→</span></div></div></a>
+<a href="case-detail.html#case-2" class="case-link"><div class="case-item"><div class="case-num">02</div><div class="case-info"><h3>直播AI智能话术生成器</h3><p>大语言模型定制话术引擎，直播间转化率+62%</p></div><div class="case-meta"><span>工具开发</span>2026年4月<span class="case-arrow">→</span></div></div></a>
+<a href="case-detail.html#case-3" class="case-link"><div class="case-item"><div class="case-num">03</div><div class="case-info"><h3>AI短视频矩阵批量生产系统</h3><p>AI内容工厂日产出200+条，人工成本降70%</p></div><div class="case-meta"><span>系统搭建</span>2026年3月<span class="case-arrow">→</span></div></div></a>
+<a href="case-detail.html#case-4" class="case-link"><div class="case-item"><div class="case-num">04</div><div class="case-info"><h3>30天新人AI陪跑计划</h3><p>50+学员1对1AI陪跑，90%学员30天内首单变现</p></div><div class="case-meta"><span>陪跑计划</span>2026年<span class="case-arrow">→</span></div></div></a>
+<a href="case-detail.html#case-5" class="case-link"><div class="case-item"><div class="case-num">05</div><div class="case-info"><h3>AI直播数据实时分析看板</h3><p>多平台数据聚合+AI诊断，运营效率提升5倍</p></div><div class="case-meta"><span>数据工具</span>2026年2月<span class="case-arrow">→</span></div></div></a>
+<a href="case-detail.html#case-6" class="case-link"><div class="case-item"><div class="case-num">06</div><div class="case-info"><h3>小红书AI内容矩阵运营</h3><p>AI批量生成笔记+智能排期，粉丝增长500%</p></div><div class="case-meta"><span>内容矩阵</span>2026年1月<span class="case-arrow">→</span></div></div></a>
+<a href="case-detail.html#case-7" class="case-link"><div class="case-item"><div class="case-num">07</div><div class="case-info"><h3>企业AI客服机器人部署</h3><p>7x24小时智能客服，AI解答率85%，满意度92%</p></div><div class="case-meta"><span>客服系统</span>2025年12月<span class="case-arrow">→</span></div></div></a>
+<a href="case-detail.html#case-8" class="case-link"><div class="case-item"><div class="case-num">08</div><div class="case-info"><h3>AI虚拟主播24h无人直播方案</h3><p>2D数字人+AI驱动，月均GMV突破50万</p></div><div class="case-meta"><span>虚拟主播</span>2025年11月<span class="case-arrow">→</span></div></div></a></div></div></section>
+<section id="contact" style="background:var(--bg)"><div class="sec-inner" style="text-align:center"><div class="sec-label">Contact</div><h2 class="sec-title">开始你的AI之旅</h2><p class="sec-desc" style="margin:0 auto 40px">不管是想学AI，还是需要AI解决方案，都可以找我聊聊</p><div class="contact-bar"><a href="tel:18888886666" class="contact-chip">📞 18888886666</a><span class="contact-chip" onclick="navigator.clipboard?.writeText('25257758')" style="cursor:pointer">💬 QQ：25257758</span></div></div></section>
+<footer>云千源广告传媒 · AI莎莎 · 让每个人都能用好AI</footer>
+<script>(function(){var c=document.getElementById('particles');var ctx=c.getContext('2d');var W,H,ps=[];function rs(){W=c.width=window.innerWidth;H=c.height=window.innerHeight}rs();window.addEventListener('resize',rs);for(var i=0;i<60;i++)ps.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2+1,vx:(Math.random()-.5)*0.4,vy:(Math.random()-.5)*0.4,o:Math.random()*0.5+0.2});function dr(){ctx.clearRect(0,0,W,H);ps.forEach(function(p){p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(74,159,255,'+p.o+')';ctx.fill()});for(var i=0;i<ps.length;i++){for(var j=i+1;j<ps.length;j++){var dx=ps[i].x-ps[j].x;var dy=ps[i].y-ps[j].y;var d=Math.sqrt(dx*dx+dy*dy);if(d<120){ctx.beginPath();ctx.moveTo(ps[i].x,ps[i].y);ctx.lineTo(ps[j].x,ps[j].y);ctx.strokeStyle='rgba(74,159,255,'+(0.06*(1-d/120))+')';ctx.stroke()}}}requestAnimationFrame(dr)}dr()})()</script>
+<script>window.toggleAcc=function(e){var p=e.nextElementSibling;var o=p.classList.contains('open');p.classList.toggle('open',!o);e.classList.toggle('open',!o)}</script>
+</body>
+</html>
