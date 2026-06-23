@@ -17,13 +17,13 @@ html { scroll-behavior: smooth; }
   --accent-magenta: #FF3366;
   --accent-purple: #8B5CF6;
   --text-primary: rgba(255,255,255,0.92);
-  --text-secondary: rgba(255,255,255,0.78);
+  --text-secondary: rgba(255,255,255,0.9);
   --text-muted: rgba(255,255,255,0.55);
 }
 
 .stratum--orange { border-left: 2px solid var(--accent-orange); }
-.stratum--orange .stratum__number { color: var(--accent-orange); }
-.stratum--orange .stratum__title-group h2 { color: var(--accent-orange); }
+.stratum--orange .stratum__number { color: var(--accent-orange); opacity: 0.6; }
+.stratum--orange .stratum__title-group h2 { color: var(--accent-orange); opacity: 0.6; }
 .stratum--cyan { border-left: 2px solid var(--accent-cyan); }
 .stratum--cyan .stratum__number { color: var(--accent-cyan); }
 .stratum--cyan .stratum__title-group h2 { color: var(--accent-cyan); }
@@ -122,7 +122,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.8);
 }
 .hero__eyebrow span { display: block; margin-top: 0.3rem; font-size: 0.6rem; letter-spacing: 0.2em; }
 
@@ -148,7 +148,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.68);
+  color: rgba(255,255,255,0.85);
   margin-top: 0.5rem;
 }
 
@@ -163,7 +163,7 @@ body {
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, #FF6B35 20%, rgba(255,255,255,0.3));
+  background: linear-gradient(135deg, #FF6B35 20%, rgba(255,255,255,0.55));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -230,7 +230,7 @@ body {
   font-weight: 300;
   line-height: 1.9;
   letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.68);
+  color: rgba(255,255,255,0.85);
 }
 .hero__sub .line {
   width: 2rem; height: 1px;
@@ -250,7 +250,7 @@ body {
 }
 .hero__scroll-line {
   width: 1px; height: 40px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.4), transparent);
+  background: linear-gradient(180deg, rgba(255,255,255,0.88), transparent);
   animation: scroll-pulse 2s ease-in-out infinite;
 }
 @keyframes scroll-pulse {
@@ -261,7 +261,7 @@ body {
   font-size: 0.55rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.75);
 }
 
 .hero__corner {
@@ -273,7 +273,40 @@ body {
 .hero__corner--br { bottom: 2rem; right: 2rem; border-bottom: 1px solid rgba(255,255,255,0.06); border-right: 1px solid rgba(255,255,255,0.06); width: 3rem; height: 3rem; }
 
 /* ============ Content Section (Strata) ============ */
-.strata {
+
+.strata__depth-track {
+  position: sticky;
+  top: 50%;
+  left: 2rem;
+  width: 1px;
+  height: 60vh;
+  background: rgba(255,255,255,0.04);
+  z-index: 10;
+  pointer-events: none;
+  float: left;
+  transform: translateY(-50%);
+}
+
+.strata__depth-marker {
+  position: absolute;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: transparent;
+  left: -3.5px;
+  transition: all 0.3s ease;
+}
+
+.strata__depth-label {
+  position: absolute;
+  left: 16px;
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.15);
+  white-space: nowrap;
+  transform: translateY(-50%);
+}.strata {
   position: relative;
   z-index: 2;
   background: #050505;
@@ -292,7 +325,7 @@ body {
   font-size: 0.6rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.88);
   font-weight: 300;
 }
 .strata__divider-line {
@@ -306,8 +339,8 @@ body {
   position: relative;
   padding: 0 6vw;
   opacity: 0;
-  transform: translateY(60px);
-  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: translateY(80px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
 .stratum.revealed {
@@ -327,7 +360,7 @@ body {
   font-size: 0.65rem;
   font-weight: 500;
   letter-spacing: 0.15em;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.88);
   white-space: nowrap;
   padding-top: 0.3rem;
   flex-shrink: 0;
@@ -343,7 +376,7 @@ body {
   font-size: 0.7rem;
   font-weight: 300;
   letter-spacing: 0.1em;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.8);
   text-transform: uppercase;
 }
 
@@ -355,13 +388,13 @@ body {
   --accent-magenta: #FF3366;
   --accent-purple: #8B5CF6;
   --text-primary: rgba(255,255,255,0.92);
-  --text-secondary: rgba(255,255,255,0.78);
+  --text-secondary: rgba(255,255,255,0.9);
   --text-muted: rgba(255,255,255,0.55);
 }
 
 .stratum--orange { border-left: 2px solid var(--accent-orange); }
-.stratum--orange .stratum__number { color: var(--accent-orange); }
-.stratum--orange .stratum__title-group h2 { color: var(--accent-orange); }
+.stratum--orange .stratum__number { color: var(--accent-orange); opacity: 0.6; }
+.stratum--orange .stratum__title-group h2 { color: var(--accent-orange); opacity: 0.6; }
 .stratum--cyan { border-left: 2px solid var(--accent-cyan); }
 .stratum--cyan .stratum__number { color: var(--accent-cyan); }
 .stratum--cyan .stratum__title-group h2 { color: var(--accent-cyan); }
@@ -389,13 +422,13 @@ body {
 }
 .stratum__card:hover {
   background: rgba(255,255,255,0.03);
-  border-color: var(--accent-orange);
+  border-color: var(--accent-orange); opacity: 0.6;
 }
 .stratum__card-icon {
   font-size: 1.6rem;
   margin-bottom: 1rem;
   font-weight: 200;
-  color: var(--accent-orange);
+  color: var(--accent-orange); opacity: 0.6;
   opacity: 0.4;
   transition: opacity 0.3s ease;
 }
@@ -406,13 +439,13 @@ body {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 0.8rem;
-  color: rgba(255,255,255,0.95);
+  color: #ffffff;
 }
 .stratum__card p {
   font-size: 0.75rem;
   font-weight: 300;
   line-height: 1.8;
-  color: rgba(255,255,255,0.82);
+  color: rgba(255,255,255,0.93);
 }
 .stratum__card ul {
   list-style: none;
@@ -422,7 +455,7 @@ body {
   font-size: 0.75rem;
   font-weight: 300;
   line-height: 1.8;
-  color: rgba(255,255,255,0.82);
+  color: rgba(255,255,255,0.93);
   padding-left: 1.2rem;
   position: relative;
 }
@@ -430,10 +463,10 @@ body {
   content: '—';
   position: absolute;
   left: 0;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.55);
 }
 .stratum__card ul li strong {
-  color: rgba(255,255,255,0.95);
+  color: #ffffff;
   font-weight: 500;
 }
 
@@ -445,13 +478,13 @@ body {
   --accent-magenta: #FF3366;
   --accent-purple: #8B5CF6;
   --text-primary: rgba(255,255,255,0.92);
-  --text-secondary: rgba(255,255,255,0.78);
+  --text-secondary: rgba(255,255,255,0.9);
   --text-muted: rgba(255,255,255,0.55);
 }
 
 .stratum--orange { border-left: 2px solid var(--accent-orange); }
-.stratum--orange .stratum__number { color: var(--accent-orange); }
-.stratum--orange .stratum__title-group h2 { color: var(--accent-orange); }
+.stratum--orange .stratum__number { color: var(--accent-orange); opacity: 0.6; }
+.stratum--orange .stratum__title-group h2 { color: var(--accent-orange); opacity: 0.6; }
 .stratum--cyan { border-left: 2px solid var(--accent-cyan); }
 .stratum--cyan .stratum__number { color: var(--accent-cyan); }
 .stratum--cyan .stratum__title-group h2 { color: var(--accent-cyan); }
@@ -481,7 +514,7 @@ body {
 }
 
 .stratum--accent .stratum__title-group h2 {
-  color: var(--accent-orange);
+  color: var(--accent-orange); opacity: 0.6;
 }
 
 /* Hall of fame / highlight card */
@@ -516,7 +549,7 @@ body {
   font-size: 0.75rem;
   font-weight: 300;
   line-height: 1.9;
-  color: rgba(255,255,255,0.78);
+  color: rgba(255,255,255,0.9);
 }
 
 .stratum__grid-3 {
@@ -538,7 +571,7 @@ body {
 .footer p {
   font-size: 0.6rem;
   letter-spacing: 0.15em;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.55);
   font-weight: 300;
 }
 .footer .brand {
@@ -546,7 +579,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.75);
   margin-bottom: 1rem;
 }
 
@@ -571,13 +604,13 @@ body {
   --accent-magenta: #FF3366;
   --accent-purple: #8B5CF6;
   --text-primary: rgba(255,255,255,0.92);
-  --text-secondary: rgba(255,255,255,0.78);
+  --text-secondary: rgba(255,255,255,0.9);
   --text-muted: rgba(255,255,255,0.55);
 }
 
 .stratum--orange { border-left: 2px solid var(--accent-orange); }
-.stratum--orange .stratum__number { color: var(--accent-orange); }
-.stratum--orange .stratum__title-group h2 { color: var(--accent-orange); }
+.stratum--orange .stratum__number { color: var(--accent-orange); opacity: 0.6; }
+.stratum--orange .stratum__title-group h2 { color: var(--accent-orange); opacity: 0.6; }
 .stratum--cyan { border-left: 2px solid var(--accent-cyan); }
 .stratum--cyan .stratum__number { color: var(--accent-cyan); }
 .stratum--cyan .stratum__title-group h2 { color: var(--accent-cyan); }
@@ -774,7 +807,9 @@ body { grid-template-columns: 1fr; }
       <div class="stratum__card">
         <div class="stratum__card-icon">■</div>
         <h3>货 — 选品与定价</h3>
-        <p>商品价格阶梯合理，福利款+主推款+利润款结构化布局。橱窗商品需与直播间定位一致，避免上下架频繁触发审核。橱窗带货开通需完成实名认证+缴纳保证金，商品来源包括精选联盟、自有店铺、定向高佣链接。</p>
+        <p><strong>价格梯队</strong>：福利款(9.9-29.9)→主推款(39.9-99)→利润款(100+)结构化布局</p>
+        <p><strong>橱窗开通</strong>：完成实名认证+缴纳500元保证金，商品来源包括精选联盟、自有店铺、定向高佣链接</p>
+        <p><strong>排品节奏</strong>：开场福利款拉停留→中期主推款做转化→尾段利润款提客单，每15-20分钟为一个转化周期</p>
       </div>
       <div class="stratum__card">
         <div class="stratum__card-icon">▲</div>
@@ -804,6 +839,8 @@ body { grid-template-columns: 1fr; }
           <li style="margin-top:0.6rem"><strong>7大权重优先级排序</strong> — 停留时长 &gt; 互动率 &gt; 转粉率 &gt; 成交转化 &gt; 商品点击 &gt; 分享率 &gt; 复购率. 停留时长是冷启动期第一权重.</li>
           <li><strong>E-S六级流量池</strong> — E级(0-500) → D级 → C级 → B级 → A级 → S级(100万+), 每级需7天长效赛马机制.</li>
           <li><strong>4.17新规生效</strong> — 新增画面稳定性检测/虚拟背景风控/矩阵号关联判定, 冷启动期违规处罚2-3倍.</li>
+          <li><strong>7天长效赛马机制</strong> — 告别单场爆发模式, 以7天为周期综合评估GMV/停留/互动/转化/复购, 持续优化才可持续获流.</li>
+          <li><strong>内容力+交易力</strong> — 内容力决定你能拿多少流量(停留时长+完播率), 交易力决定你能赚多少钱(转化率+GPM). 两手都要抓.</li>
         </ul>
       </div>
       <div class="stratum__card">
