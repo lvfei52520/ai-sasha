@@ -11,9 +11,9 @@
 html { scroll-behavior: smooth; }
 
 :root {
-  --accent-orange: #FF6B35;
+  --accent-orange: #FF8C42;
   --accent-cyan: #00D4AA;
-  --accent-amber: #FFB800;
+  --accent-amber: #FFD700;
   --accent-magenta: #FF3366;
   --accent-purple: #8B5CF6;
   --text-primary: rgba(255,255,255,0.92);
@@ -163,7 +163,7 @@ body {
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, #FF6B35 20%, rgba(255,255,255,0.55));
+  background: linear-gradient(135deg, #FF8C42 20%, rgba(255,255,255,0.55));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -173,7 +173,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255,107,53,0.6);
+  color: rgba(255,140,66,0.6);
   margin-top: 0.4rem;
 }
 
@@ -382,9 +382,9 @@ body {
 
 .stratum__
 :root {
-  --accent-orange: #FF6B35;
+  --accent-orange: #FF8C42;
   --accent-cyan: #00D4AA;
-  --accent-amber: #FFB800;
+  --accent-amber: #FFD700;
   --accent-magenta: #FF3366;
   --accent-purple: #8B5CF6;
   --text-primary: rgba(255,255,255,0.92);
@@ -472,9 +472,9 @@ body {
 
 .stratum--full .stratum__
 :root {
-  --accent-orange: #FF6B35;
+  --accent-orange: #FF8C42;
   --accent-cyan: #00D4AA;
-  --accent-amber: #FFB800;
+  --accent-amber: #FFD700;
   --accent-magenta: #FF3366;
   --accent-purple: #8B5CF6;
   --text-primary: rgba(255,255,255,0.92);
@@ -510,7 +510,7 @@ body {
 }
 .stratum--accent .stratum__card {
   border-color: rgba(0,212,170,0.15);
-  background: rgba(255,107,53,0.02);
+  background: rgba(255,140,66,0.03);
 }
 
 .stratum--accent .stratum__title-group h2 {
@@ -532,7 +532,7 @@ body {
   font-weight: 900;
   letter-spacing: -0.06em;
   line-height: 1;
-  background: linear-gradient(135deg, #FFB800, rgba(255,255,255,0.1));
+  background: linear-gradient(135deg, #FFD700, rgba(255,255,255,0.1));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -543,7 +543,7 @@ body {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 1rem;
-  color: #FFB800;
+  color: #FFD700;
 }
 .stratum__highlight-content p {
   font-size: 0.75rem;
@@ -598,9 +598,9 @@ body {
   .stratum { padding: 0 5vw; }
   .stratum__
 :root {
-  --accent-orange: #FF6B35;
+  --accent-orange: #FF8C42;
   --accent-cyan: #00D4AA;
-  --accent-amber: #FFB800;
+  --accent-amber: #FFD700;
   --accent-magenta: #FF3366;
   --accent-purple: #8B5CF6;
   --text-primary: rgba(255,255,255,0.92);
@@ -683,7 +683,7 @@ body { grid-template-columns: 1fr; }
   </div>
 
   <!-- Stratum 1: Account Prep -->
-  <div class="stratum" data-reveal>
+  <div class="stratum stratum--stagger" data-reveal>
     <div class="stratum__header">
       <div class="stratum__number">01</div>
       <div class="stratum__title-group">
@@ -763,6 +763,23 @@ body { grid-template-columns: 1fr; }
     </div>
   </div>
 
+    <!-- Stat Break -->
+  <div class="stratum" data-reveal>
+    <div class="stratum__hero-card">
+      <div>
+        <h4>养号黄金窗口</h4>
+        <div class="big-num">72h</div>
+        <p>养号期黄金72小时 — 分2个时段完成，每时段15-20分钟对标内容浏览，确保70%以上观看内容属于目标赛道。</p>
+        <p style="margin-top:0.8rem">每日操作：10-15次点赞 / 2-3条15字以上评论 / 关注2-3个对标账号 / 进入直播间停留10分钟以上。</p>
+      </div>
+      <div>
+        <h4>开播准入条件</h4>
+        <div class="big-num">500+</div>
+        <p>满足两个标准即可开播：① 推荐页连续10条视频中至少8条属于垂直领域；② 发布第一条原创垂直内容，12小时内播放量突破500。</p>
+      </div>
+    </div>
+  </div>
+
   <!-- Stratum 3: Live Start -->
   <div class="stratum" data-reveal>
     <div class="stratum__header">
@@ -820,7 +837,7 @@ body { grid-template-columns: 1fr; }
   </div>
 
   <!-- Stratum 5: Algorithm Deep Dive -->
-  <div class="stratum" data-reveal>
+  <div class="stratum stratum--stagger" data-reveal>
     <div class="stratum__header">
       <div class="stratum__number">05</div>
       <div class="stratum__title-group">
@@ -856,8 +873,24 @@ body { grid-template-columns: 1fr; }
     </div>
   </div>
 
-  <!-- Stratum 6: 7-Day Slow Push -->
+    <!-- Stat Break 2 -->
   <div class="stratum" data-reveal>
+    <div class="stratum__hero-card">
+      <div>
+        <h4>流量晋级路径</h4>
+        <div class="big-num">E&#8594;S</div>
+        <p>E级(0-500场观) &#8594; D级(500-3000) &#8594; C级(3000-3万) &#8594; B级(3-30万) &#8594; A级(30-100万) &#8594; S级(100万+)。每级7天长效赛马机制评估。</p>
+      </div>
+      <div>
+        <h4>4.17新规提示</h4>
+        <div class="big-num">4.17</div>
+        <p>2026年4月17日生效：新增画面稳定性检测、虚拟背景风控、矩阵号关联判定。冷启动期话术违规处罚力度是成熟账号的2-3倍。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stratum 6: 7-Day Slow Push -->
+  <div class="stratum stratum--stagger-reverse" data-reveal>
     <div class="stratum__header">
       <div class="stratum__number">06</div>
       <div class="stratum__title-group">
