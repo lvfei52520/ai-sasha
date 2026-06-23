@@ -4,102 +4,97 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>AI莎莎</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#0a0a14;--sf:#12121e;--card:#151526;--t1:#edeae5;--t2:#8a8892;--t3:#5c5a64;--ac:#c8a44e;--ac2:#8b9db5;--bd:rgba(255,255,255,.05);--sh:0 2px 16px rgba(0,0,0,.2);--sh-lg:0 12px 48px rgba(0,0,0,.35)}
-html{font-size:16px;-webkit-font-smoothing:antialiased}
-body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--t1);line-height:1.5;overflow:hidden;height:100vh;font-weight:400}
-.app{height:100vh;position:relative}
-.page{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;opacity:0;pointer-events:none;transition:opacity .5s ease,transform .5s ease;transform:translateY(20px);padding-bottom:88px;-webkit-overflow-scrolling:touch}
-.page.active{opacity:1;pointer-events:auto;transform:translateY(0)}
-.pg-inner{padding:72px 56px 56px;max-width:1440px;margin:0 auto}
-@media(max-width:768px){.pg-inner{padding:48px 28px 40px}}
-/* BG texture */
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(200,164,78,.03),transparent),radial-gradient(ellipse 40% 30% at 80% 80%,rgba(139,157,181,.02),transparent);pointer-events:none;z-index:0}
-/* Nav */
-.bot-nav{position:fixed;bottom:0;left:0;right:0;z-index:200;display:flex;justify-content:center;gap:0;padding:8px 24px 14px;background:rgba(10,10,20,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid var(--bd)}
-.bn-item{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 18px;border-radius:10px;border:none;background:transparent;cursor:pointer;color:var(--t3);font-size:.6rem;font-weight:600;letter-spacing:.03em;transition:all .25s;white-space:nowrap}
-.bn-item .bn-icon{font-size:1.15rem;opacity:.5;transition:all .25s}
-.bn-item.active{color:var(--ac);background:rgba(200,164,78,.06)}.bn-item.active .bn-icon{opacity:1}
-/* Typography */
-h1{font-size:clamp(2.8rem,7vw,5rem);font-weight:900;letter-spacing:-.02em;line-height:1.05}
-h2{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;letter-spacing:-.01em;line-height:1.2}
-.accent{color:var(--ac)}
-.dim{color:var(--t2)}
-.smt{color:var(--t3)}
-/* Buttons */
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 36px;border-radius:8px;font-size:.875rem;font-weight:600;text-decoration:none;transition:all .3s;cursor:pointer;border:none;letter-spacing:.02em}
-.btn-gold{background:linear-gradient(135deg,#c8a44e,#a8853a);color:#0a0a14}.btn-gold:hover{background:linear-gradient(135deg,#d4b35c,#b89240);transform:translateY(-1px)}
-.btn-line{border:1px solid rgba(255,255,255,.1);color:var(--t1);background:rgba(255,255,255,.03)}.btn-line:hover{border-color:var(--ac);background:rgba(200,164,78,.06)}
-/* Hero */
-.hero-pg{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:56px 48px 120px;text-align:center;position:relative}
-.hero-pg::before{content:'';position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(200,164,78,.08),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
-.hero-mark{width:56px;height:4px;background:var(--ac);border-radius:2px;margin-bottom:32px}
-.hero-pg p.sub{font-size:1.05rem;color:var(--t2);margin:24px 0 44px;max-width:460px;line-height:1.75;font-weight:400}
-/* Section labels */
-.sec-tag{display:inline-flex;align-items:center;gap:10px;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:var(--ac);margin-bottom:20px}
-.sec-tag::before{content:'';width:20px;height:1px;background:var(--ac);opacity:.5}
-/* About */
-.ab-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.ab-quote{border-left:2px solid var(--ac);padding:20px 28px;margin-bottom:24px}.ab-quote p{font-size:1.2rem;line-height:1.7;color:var(--t1);font-weight:500;font-style:italic}
-.ab-quote .by{font-size:.8rem;color:var(--ac);margin-top:12px;font-style:normal;font-weight:600}
-.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
-.st-item{text-align:center;padding:36px 20px;background:var(--card);border:1px solid var(--bd);border-radius:12px;transition:all .35s}
-.st-item:hover{transform:translateY(-3px);border-color:rgba(200,164,78,.2);background:#191930}
-.st-num{font-size:2.6rem;font-weight:900;color:var(--ac);line-height:1;letter-spacing:-.02em}.st-lbl{font-size:.7rem;color:var(--t3);margin-top:8px;letter-spacing:.04em;text-transform:uppercase}
-@media(max-width:768px){.ab-grid{grid-template-columns:1fr;gap:40px}.stat-row{grid-template-columns:1fr 1fr}}
-/* Courses - 3col grid */
-.crse-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.crse-card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:32px 28px;transition:all .35s;position:relative;overflow:hidden}
-.crse-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--ac),transparent);opacity:0;transition:opacity .35s}
-.crse-card:hover{transform:translateY(-4px);border-color:rgba(200,164,78,.2);background:#191930}.crse-card:hover::after{opacity:.3}
-.crse-card.span2{grid-column:span 2;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center}
-.crse-icon{font-size:2.4rem;margin-bottom:16px}.crse-card.span2 .crse-icon{font-size:3.5rem;margin-bottom:0}
-.crse-card h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
-.crse-card p{font-size:.84rem;color:var(--t2);line-height:1.7}
-.crse-tag{display:inline-block;margin-top:14px;padding:4px 14px;border-radius:6px;font-size:.65rem;font-weight:600;background:rgba(200,164,78,.08);color:var(--ac);letter-spacing:.04em;text-transform:uppercase}
-@media(max-width:768px){.crse-grid{grid-template-columns:1fr 1fr}.crse-card.span2{grid-column:span 1;grid-template-columns:1fr}}
-@media(max-width:480px){.crse-grid{grid-template-columns:1fr}}
-/* Outline - card grid */
-.tl-section{margin-bottom:44px}.tl-section h3{font-size:1.1rem;font-weight:700;color:var(--ac);margin-bottom:20px;display:flex;align-items:center;gap:10px;letter-spacing:-.01em}
-.tl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
-.tl-card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:24px;transition:all .3s;position:relative}
-.tl-card::before{content:'';position:absolute;left:0;top:12px;bottom:12px;width:2px;background:var(--ac);border-radius:0 2px 2px 0;opacity:.4;transition:opacity .3s}
-.tl-card:hover{transform:translateX(4px);border-color:rgba(200,164,78,.2);background:#191930}.tl-card:hover::before{opacity:1}
-.tl-card h4{font-size:.92rem;font-weight:700;margin-bottom:6px;padding-left:10px;letter-spacing:-.01em}
-.tl-card .td{font-size:.78rem;color:var(--t2);line-height:1.65;padding-left:10px}
-/* Cases */
-.case-swipe{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:20px;padding:8px 4px 24px;-webkit-overflow-scrolling:touch}
-.case-swipe::-webkit-scrollbar{height:4px}.case-swipe::-webkit-scrollbar-thumb{background:rgba(255,255,255,.06);border-radius:2px}
-.case-card{flex:0 0 360px;scroll-snap-align:start;background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:32px 28px;text-decoration:none;color:inherit;transition:all .35s;position:relative;overflow:hidden}
-.case-card:hover{transform:translateY(-6px);border-color:rgba(200,164,78,.2);background:#191930}
-.case-num{font-size:4rem;font-weight:900;color:rgba(200,164,78,.04);position:absolute;top:4px;right:14px;line-height:1;letter-spacing:-.03em}
-.case-card h3{font-size:1.1rem;font-weight:700;margin-bottom:10px;position:relative;z-index:1;letter-spacing:-.01em}
-.case-card .cd{font-size:.84rem;color:var(--t2);line-height:1.7;margin-bottom:18px;position:relative;z-index:1}
-.case-card .cm{font-size:.7rem;color:var(--ac);font-weight:600;letter-spacing:.04em;text-transform:uppercase;position:relative;z-index:1}
-@media(max-width:480px){.case-card{flex:0 0 85vw}}
-/* Contact */
-.cnt-full{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:55vh;text-align:center;gap:40px}
-.cnt-pills{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
-.cnt-pill{display:flex;align-items:center;gap:12px;padding:18px 32px;border-radius:10px;background:var(--card);border:1px solid var(--bd);color:var(--t1);text-decoration:none;font-weight:500;font-size:.9rem;transition:all .3s;cursor:pointer;letter-spacing:.01em}
-.cnt-pill:hover{transform:translateY(-2px);border-color:var(--ac);background:rgba(200,164,78,.04)}
-.cnt-pill .ico{font-size:1.2rem}
-.ft{text-align:center;padding:14px;color:var(--t3);font-size:.7rem;letter-spacing:.04em;position:absolute;bottom:84px;left:0;right:0;pointer-events:none}
+:root{--bg:#050505;--t1:#f0ede8;--t2:#8a8680;--t3:#4a4642;--ac:#c8a860;--line:rgba(255,255,255,.06)}
+html{font-size:16px;-webkit-font-smoothing:antialiased;scroll-behavior:smooth;background:#050505}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--t1);line-height:1.5;font-weight:400;overflow-x:hidden}
+.hero{position:relative;height:100vh;width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 70% 50% at 50% 40%,#0d0d0d,#050505,#000);pointer-events:none}
+.hero-bg::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='0.4' fill='rgba(255,255,255,0.12)'/%3E%3C/svg%3E");opacity:.6}
+.hero-content{position:relative;z-index:1;width:100%;height:100%;padding:80px 64px}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr auto 1fr;height:100%;gap:0;align-items:end}
+.hl-tl{grid-column:1;grid-row:1;align-self:start;padding-top:20px}
+.hl-tl .eyebrow{font-size:.55rem;font-weight:600;letter-spacing:.3em;color:var(--ac);text-transform:uppercase;margin-bottom:16px}
+.hl-tl h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,9vw,8rem);font-weight:900;line-height:.88;letter-spacing:-.03em;color:var(--t1)}
+.hl-tl h1 .line2{display:block;margin-left:.3em;color:transparent;stroke:1.5px var(--t1);-webkit-text-stroke:1.5px var(--t1)}
+.hl-tr{grid-column:3;grid-row:1;align-self:start;justify-self:end;text-align:right;padding-top:20px}
+.hl-tr .stat-big{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:900;color:var(--ac);line-height:1}
+.hl-tr .stat-label{font-size:.5rem;font-weight:600;letter-spacing:.25em;color:var(--t3);text-transform:uppercase;margin-top:4px}
+.hl-ctr{grid-column:2;grid-row:2;text-align:center;align-self:center;justify-self:center}
+.hl-ctr .brand{font-size:clamp(1.5rem,3.5vw,2.5rem);font-weight:900;letter-spacing:.08em;color:var(--t1)}
+.hl-ctr .tagline{font-size:.6rem;font-weight:500;letter-spacing:.35em;color:var(--t3);text-transform:uppercase;margin-top:10px}
+.hl-bl{grid-column:1;grid-row:3;align-self:end;padding-bottom:40px}
+.hl-bl .stat-big{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:900;color:var(--ac);line-height:1}
+.hl-bl .stat-label{font-size:.5rem;font-weight:600;letter-spacing:.25em;color:var(--t3);text-transform:uppercase;margin-top:4px}
+.hl-br{grid-column:3;grid-row:3;align-self:end;justify-self:end;text-align:right;padding-bottom:40px}
+.hl-br p{font-size:.62rem;font-weight:400;color:var(--t2);line-height:2;letter-spacing:.04em;max-width:180px}
+.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-hint span{font-size:.5rem;font-weight:600;letter-spacing:.3em;color:var(--t3);text-transform:uppercase}
+.scroll-hint .line{width:1px;height:40px;background:linear-gradient(180deg,var(--ac),transparent)}
+.deco-line{position:absolute;background:var(--line);z-index:1}.deco-line.h{height:1px;left:0;right:0}.deco-line.v{width:1px;top:0;bottom:0}
+.deco-line.h1{top:15%}.deco-line.h2{bottom:25%}.deco-line.v1{left:10%}.deco-line.v2{right:15%}
+.strata{position:relative;z-index:2;background:var(--bg);min-height:100vh}
+.strata-header{position:relative;padding:120px 64px 60px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
+.strata-header .layer-label{font-size:.5rem;font-weight:700;letter-spacing:.4em;color:var(--ac);text-transform:uppercase;margin-bottom:24px}
+.strata-header h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,4rem);font-weight:900;line-height:1.1;letter-spacing:-.02em}
+.strata-header h2 em{font-style:italic;color:var(--ac)}
+.geo-layers{position:relative;padding:0 64px 40px}
+.geo-layer{position:relative;padding:36px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 2fr 1fr;gap:40px;align-items:center}
+.geo-layer:last-child{border-bottom:1px solid var(--line)}
+.geo-layer .gl-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--ac);opacity:.3}
+.geo-layer .gl-title{font-size:.9rem;font-weight:700;letter-spacing:.04em;line-height:1.4}
+.geo-layer .gl-title span{display:block;font-size:.6rem;font-weight:500;letter-spacing:.2em;color:var(--t3);text-transform:uppercase;margin-top:4px}
+.geo-layer .gl-desc{font-size:.75rem;color:var(--t2);line-height:1.8}
+.geo-layer .gl-stat{text-align:right;font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--ac)}
+.geo-layer .gl-stat span{display:block;font-size:.45rem;font-weight:600;letter-spacing:.3em;color:var(--t3);text-transform:uppercase;margin-top:2px}
+.case-section{padding:80px 64px 40px}
+.case-section .layer-label{font-size:.5rem;font-weight:700;letter-spacing:.4em;color:var(--ac);text-transform:uppercase;margin-bottom:32px}
+.case-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:16px}
+.case-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);padding:28px 22px;transition:all .4s;cursor:pointer;text-decoration:none;color:inherit;display:block;position:relative;overflow:hidden}
+.case-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--ac),transparent);opacity:0;transition:opacity .4s}
+.case-card:hover{background:rgba(255,255,255,.04);border-color:rgba(200,168,96,.15)}.case-card:hover::before{opacity:.6}
+.case-card .cc-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:rgba(200,168,96,.1);margin-bottom:12px}
+.case-card h4{font-size:.8rem;font-weight:700;margin-bottom:6px;letter-spacing:.02em}
+.case-card p{font-size:.65rem;color:var(--t2);line-height:1.6}
+.case-card .cc-tag{display:inline-block;margin-top:10px;font-size:.5rem;font-weight:600;letter-spacing:.15em;color:var(--ac);text-transform:uppercase}
+.contact-strip{position:relative;padding:80px 64px 100px;border-top:1px solid rgba(255,255,255,.04);text-align:center}
+.contact-strip h3{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;margin-bottom:12px}
+.contact-strip p{font-size:.7rem;color:var(--t2);letter-spacing:.08em;margin-bottom:36px}
+.contact-strip .links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.contact-strip .links a,.contact-strip .links span{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border:1px solid rgba(255,255,255,.08);color:var(--t1);text-decoration:none;font-size:.75rem;font-weight:500;letter-spacing:.04em;transition:all .3s;cursor:pointer}
+.contact-strip .links a:hover,.contact-strip .links span:hover{border-color:var(--ac);background:rgba(200,168,96,.04)}
+.footer-note{text-align:center;padding:20px;font-size:.55rem;color:var(--t3);letter-spacing:.15em;text-transform:uppercase;border-top:1px solid rgba(255,255,255,.02)}
+@media(max-width:768px){.hero-content{padding:60px 32px}.hero-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto auto}.hl-tl{grid-column:1/3;grid-row:1}.hl-tr{grid-column:2;grid-row:1;padding-top:24px}.hl-ctr{grid-column:1/3;grid-row:2;padding:40px 0}.hl-bl{grid-column:1;grid-row:3}.hl-br{grid-column:2;grid-row:3}.geo-layer{grid-template-columns:1fr;gap:12px;padding:28px 0}.geo-layer .gl-stat{text-align:left}.strata-header,.case-section,.contact-strip,.geo-layers{padding-left:32px;padding-right:32px}.deco-line.v1,.deco-line.v2{display:none}}
+@media(max-width:1024px){.case-row{grid-template-columns:1fr 1fr}}@media(max-width:600px){.case-row{grid-template-columns:1fr}}
 </style></head>
 <body>
-<div class="app">
-<div class="page active" id="pg-home"><div class="hero-pg"><div class="hero-mark"></div><h1>让AI<br><span class="accent">为你</span>工作</h1><p class="sub">AI普惠教育 · 直播教学 · 企业AI落地<br>不讲玄学，只做可验证的方案</p><div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center"><button class="btn btn-gold" onclick="goTo('pg-courses')">查看课程</button><button class="btn btn-line" onclick="goTo('pg-contact')">联系我 →</button></div></div></div>
-<div class="page" id="pg-about"><div class="pg-inner"><span class="sec-tag">About</span><div class="ab-grid"><div><h2>把AI从概念<br>变成<span class="accent">生产力</span></h2><p class="dim" style="margin-top:20px;font-size:.95rem;line-height:1.85">前美年集团团队经理，现云千源广告传媒金牌直播讲师。3年直播教学 + 200+学员陪跑。2026年全面拥抱AI赛道——坚信直播与AI的结合是普通人弯道超车的最短路径。</p></div><div class="ab-quote"><p>"不讲玄学，只做落地。把最前沿的AI能力翻译成人人能用的解决方案。"</p><div class="by">— AI莎莎</div></div></div><div class="stat-row"><div class="st-item"><div class="st-num">3+</div><div class="st-lbl">年教学经验</div></div><div class="st-item"><div class="st-num">200+</div><div class="st-lbl">带教学员</div></div><div class="st-item"><div class="st-num">20+</div><div class="st-lbl">企业案例</div></div><div class="st-item"><div class="st-num">10万+</div><div class="st-lbl">观看人次</div></div></div></div></div>
-<div class="page" id="pg-courses"><div class="pg-inner"><span class="sec-tag">Courses</span><h2>AI普惠课程</h2><p class="dim" style="margin:16px 0 40px;font-size:.95rem">每门课经过200+学员验证，不堆术语只教实操</p><div class="crse-grid"><div class="crse-card"><div class="crse-icon">🚀</div><h3>AI入门实战课</h3><p>零基础7天上手，ChatGPT到AI绘画全覆盖，覆盖主流AI工具实操</p><span class="crse-tag">入门</span></div><div class="crse-card"><div class="crse-icon">🎙️</div><h3>直播+AI提效课</h3><p>AI话术生成、实时评论回复、数据智能分析</p><span class="crse-tag">进阶</span></div><div class="crse-card span2"><div class="crse-icon">🎬</div><div><h3>AI短视频创作营</h3><p>AI写文案+配音+剪辑，批量生产，爆款率翻倍</p><span class="crse-tag">热门</span></div></div><div class="crse-card"><div class="crse-icon">💼</div><h3>职场AI办公提效</h3><p>PPT自生成、Excel分析、文档总结</p><span class="crse-tag">实用</span></div><div class="crse-card span2"><div class="crse-icon">🤖</div><div><h3>企业AI定制内训</h3><p>量身定制AI方案，选型到落地全链路陪跑</p><span class="crse-tag">企业</span></div></div><div class="crse-card"><div class="crse-icon">🌟</div><h3>新人AI陪跑计划</h3><p>30天1对1深度陪跑，跑通完整变现闭环</p><span class="crse-tag">陪跑</span></div></div></div></div>
-<div class="page" id="pg-outline"><div class="pg-inner"><span class="sec-tag">Outline</span><h2>教学大纲</h2><p class="dim" style="margin:16px 0 40px;font-size:.95rem">三条主线，系统的内容架构</p><div class="tl-section"><h3>📱 抖音新人赛道认知课</h3><div class="tl-grid"><div class="tl-card"><h4>一、抛话题</h4><p class="td">90%新人输在起点——你学的不是直播，是背词<span class="accent" style="font-weight:600;font-size:.7rem"> · 前10秒的钩子</span></p></div><div class="tl-card"><h4>二、塑造价值</h4><p class="td">话术是放大器不是发动机——跑出来的不是最能说的<span class="accent" style="font-weight:600;font-size:.7rem"> · 为何听我讲</span></p></div><div class="tl-card"><h4>三、三步定赛道</h4><p class="td">看大盘→切缝隙→测数据，10天定生死<span class="accent" style="font-weight:600;font-size:.7rem"> · 核心方法论</span></p></div><div class="tl-card"><h4>四、收尾与自检表</h4><p class="td">做对选择比做对动作重要一百倍<span class="accent" style="font-weight:600;font-size:.7rem"> · 行动清单</span></p></div></div></div><div class="tl-section"><h3>🎬 快手电商起步</h3><div class="tl-grid"><div class="tl-card"><h4>抛话题+核价值</h4><p class="td">顺序搞反了？①定赛道 ②内容在前 ③数据迭代<span class="accent" style="font-weight:600;font-size:.7rem"> · 底层逻辑</span></p></div><div class="tl-card"><h4>新人自查清单</h4><p class="td">你选的类目？发了短视频？数据记了？<span class="accent" style="font-weight:600;font-size:.7rem"> · 每日三问</span></p></div></div></div><div class="tl-section"><h3>🤖 AI+直播实操课</h3><div class="tl-grid"><div class="tl-card"><h4>模块一：AI工具上手</h4><p class="td">ChatGPT/Kimi/Claude实操、AI绘画、AI配音<span class="accent" style="font-weight:600;font-size:.7rem"> · 零基础友好</span></p></div><div class="tl-card"><h4>模块二：AI+直播全链路</h4><p class="td">AI话术、实时回复、数据分析看板<span class="accent" style="font-weight:600;font-size:.7rem"> · 核心应用</span></p></div><div class="tl-card"><h4>模块三：AI短视频生产</h4><p class="td">AI选题、写文案、配音+字幕、剪辑、分发<span class="accent" style="font-weight:600;font-size:.7rem"> · 效率革命</span></p></div><div class="tl-card"><h4>模块四：企业AI部署</h4><p class="td">AI知识库、客服机器人、数据中台、内容工厂<span class="accent" style="font-weight:600;font-size:.7rem"> · 企业级方案</span></p></div></div></div></div></div>
-<div class="page" id="pg-cases"><div class="pg-inner"><span class="sec-tag">Cases</span><h2>教学开发服务案例</h2><p class="dim" style="margin:16px 0 36px;font-size:.95rem">真实项目 · 可验证效果 · 左右滑动浏览</p><div class="case-swipe"><a href="case-detail.html#case-1" class="case-card"><div class="case-num">01</div><h3>某传媒公司全员AI提效培训</h3><p class="cd">30人团队2周密集培训，内容生产提效300%</p><span class="cm">企业内训 →</span></a><a href="case-detail.html#case-2" class="case-card"><div class="case-num">02</div><h3>直播AI智能话术生成器</h3><p class="cd">大语言模型驱动，多平台适配，转化率+62%</p><span class="cm">工具开发 →</span></a><a href="case-detail.html#case-3" class="case-card"><div class="case-num">03</div><h3>AI短视频矩阵批量生产</h3><p class="cd">选题→写稿→配音→剪辑全自动，日产出200+条</p><span class="cm">系统搭建 →</span></a><a href="case-detail.html#case-4" class="case-card"><div class="case-num">04</div><h3>30天新人AI陪跑计划</h3><p class="cd">50+学员1对1深度陪跑，90%实现首单变现</p><span class="cm">陪跑计划 →</span></a><a href="case-detail.html#case-5" class="case-card"><div class="case-num">05</div><h3>AI直播数据实时分析看板</h3><p class="cd">多平台聚合+AI诊断，运营效率提升500%</p><span class="cm">数据工具 →</span></a><a href="case-detail.html#case-6" class="case-card"><div class="case-num">06</div><h3>小红书AI内容矩阵运营</h3><p class="cd">AI批量生成笔记，粉丝增长500%</p><span class="cm">内容矩阵 →</span></a><a href="case-detail.html#case-7" class="case-card"><div class="case-num">07</div><h3>企业AI客服机器人部署</h3><p class="cd">7×24h智能客服，解答率85%满意度92%</p><span class="cm">客服系统 →</span></a><a href="case-detail.html#case-8" class="case-card"><div class="case-num">08</div><h3>AI虚拟主播24h无人直播</h3><p class="cd">2D数字人AI驱动，ROI 1:8月GMV 50万+</p><span class="cm">虚拟主播 →</span></a></div></div></div>
-<div class="page" id="pg-contact"><div class="pg-inner"><div class="cnt-full"><span class="sec-tag">Contact</span><h2>开始你的<br><span class="accent">AI之旅</span></h2><p class="dim" style="text-align:center;margin:0 auto 40px;font-size:.95rem">想学AI？需要AI方案？<br>聊聊看，不收费</p><div class="cnt-pills"><a href="tel:18888886666" class="cnt-pill"><span class="ico">📞</span> 18888886666</a><span class="cnt-pill" onclick="navigator.clipboard?.writeText('25257758')"><span class="ico">💬</span> QQ：25257758</span></div></div></div></div>
-<div class="ft">云千源广告传媒 · AI莎莎</div>
-<nav class="bot-nav"><button class="bn-item active" data-page="pg-home"><span class="bn-icon">◉</span>首页</button><button class="bn-item" data-page="pg-about"><span class="bn-icon">◈</span>关于</button><button class="bn-item" data-page="pg-courses"><span class="bn-icon">◆</span>课程</button><button class="bn-item" data-page="pg-outline"><span class="bn-icon">◇</span>大纲</button><button class="bn-item" data-page="pg-cases"><span class="bn-icon">○</span>案例</button><button class="bn-item" data-page="pg-contact"><span class="bn-icon">◎</span>联系</button></nav>
+<div class="hero-bg"></div>
+<section class="hero">
+<div class="deco-line h h1"></div><div class="deco-line h h2"></div><div class="deco-line v v1"></div><div class="deco-line v v2"></div>
+<div class="hero-content"><div class="hero-grid">
+<div class="hl-tl" data-parallax="0.3"><div class="eyebrow">ARTIFICIAL INTELLIGENCE</div><h1>PROTECT<span class="line2">DATA</span></h1></div>
+<div class="hl-tr" data-parallax="0.9"><div class="stat-big">+1.5B</div><div class="stat-label">AI Models Trained</div></div>
+<div class="hl-ctr" data-parallax="0.6"><div class="brand">AI 莎莎</div><div class="tagline">POWERED BY INTELLIGENCE</div></div>
+<div class="hl-bl" data-parallax="0.4"><div class="stat-big">+300K</div><div class="stat-label">Course Views</div></div>
+<div class="hl-br" data-parallax="0.7"><p>AI时代的竞争力<br>不在于你会不会用工具<br>而在于你敢不敢重新定义<br>自己的赛道</p></div>
+</div></div>
+<div class="scroll-hint" data-parallax="1.2"><span>Scroll</span><div class="line"></div></div>
+</section>
+<section class="strata">
+<div class="strata-header"><div class="layer-label">// DIG DEEPER</div><h2>把AI从概念<br>变成你的<em>生产力</em></h2></div>
+<div class="geo-layers">
+<div class="geo-layer"><div class="gl-num">01</div><div class="gl-title">直播教学<span>LIVE STREAM TEACHING</span></div><div class="gl-desc">前美年集团团队经理。3年直播教学沉淀，200+学员陪跑经验。从赛道选择到话术设计，全链路方法论。</div><div class="gl-stat">3年+<span>教学经验</span></div></div>
+<div class="geo-layer"><div class="gl-num">02</div><div class="gl-title">AI普惠课程<span>AI FOR EVERYONE</span></div><div class="gl-desc">6门核心课程覆盖入门到企业级。ChatGPT到AI绘画，AI短视频到办公提效。每门课经过200+学员验证。</div><div class="gl-stat">200+<span>带教学员</span></div></div>
+<div class="geo-layer"><div class="gl-num">03</div><div class="gl-title">企业AI服务<span>ENTERPRISE AI</span></div><div class="gl-desc">为企业量身定制AI解决方案。从需求诊断到工具部署，从培训到持续优化。可验证的ROI。</div><div class="gl-stat">20+<span>企业案例</span></div></div>
+<div class="geo-layer"><div class="gl-num">04</div><div class="gl-title">内容矩阵<span>CONTENT MATRIX</span></div><div class="gl-desc">AI驱动的短视频批量生产系统。选题→写稿→配音→剪辑全自动化。日产出200+条，人力成本降70%。</div><div class="gl-stat">10万+<span>课程观看</span></div></div>
 </div>
+<div class="case-section"><div class="layer-label">// PROVEN CASES</div><div class="case-row"><a href="case-detail.html#case-1" class="case-card"><div class="cc-num">01</div><h4>某传媒公司全员AI提效培训</h4><p>30人团队2周培训，内容生产提效300%</p><span class="cc-tag">Enterprise</span></a><a href="case-detail.html#case-2" class="case-card"><div class="cc-num">02</div><h4>直播AI智能话术生成器</h4><p>大语言模型驱动，转化率+62%</p><span class="cc-tag">Tooling</span></a><a href="case-detail.html#case-3" class="case-card"><div class="cc-num">03</div><h4>AI短视频矩阵批量生产</h4><p>日产出200+条，人本降70%</p><span class="cc-tag">System</span></a><a href="case-detail.html#case-4" class="case-card"><div class="cc-num">04</div><h4>30天新人AI陪跑计划</h4><p>90%学员30天内首单变现</p><span class="cc-tag">Coaching</span></a></div><div class="case-row"><a href="case-detail.html#case-5" class="case-card"><div class="cc-num">05</div><h4>AI直播数据实时分析看板</h4><p>多平台聚合+诊断，效率×5</p><span class="cc-tag">Data</span></a><a href="case-detail.html#case-6" class="case-card"><div class="cc-num">06</div><h4>小红书AI内容矩阵运营</h4><p>粉丝增长500%，1人+AI=5人</p><span class="cc-tag">Content</span></a><a href="case-detail.html#case-7" class="case-card"><div class="cc-num">07</div><h4>企业AI客服机器人部署</h4><p>7×24h智能客服，解答率85%</p><span class="cc-tag">Service</span></a><a href="case-detail.html#case-8" class="case-card"><div class="cc-num">08</div><h4>AI虚拟主播24h无人直播</h4><p>ROI 1:8，月GMV 50万+</p><span class="cc-tag">Virtual</span></a></div></div>
+<div class="contact-strip"><h3>开始你的<em style="font-style:italic;color:var(--ac)">AI之旅</em></h3><p>不管想学AI还是需要方案，聊聊看</p><div class="links"><a href="tel:18888886666">+86 188-8888-6666</a><span onclick="navigator.clipboard?.writeText('25257758')">QQ 25257758</span></div></div>
+<div class="footer-note">云千源广告传媒 &copy; 2026 AI莎莎</div>
+</section>
 <script>
-(function(){var p=document.querySelectorAll('.page'),b=document.querySelectorAll('.bn-item');
-function s(id){p.forEach(function(x){x.classList.toggle('active',x.id===id)});b.forEach(function(x){x.classList.toggle('active',x.dataset.page===id)})}
-b.forEach(function(x){x.addEventListener('click',function(){s(x.dataset.page)})});window.goTo=s;})();
+(function(){var hero=document.querySelector('.hero');var els=document.querySelectorAll('[data-parallax]');function onScroll(){var sy=window.scrollY;var hh=hero.offsetHeight;if(sy>hh)return;var pct=sy/hh;els.forEach(function(el){var sp=parseFloat(el.dataset.parallax)||0.5;el.style.transform='translateY('+(pct*sp*60)+'px)';el.style.opacity=1-pct*1.2})}window.addEventListener('scroll',onScroll,{passive:true})})();
 </script></body>
 </html>
