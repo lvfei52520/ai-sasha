@@ -1,100 +1,800 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>AI莎莎</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOUYIN · 直播增长白皮书</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&display=swap');
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#050505;--t1:#f0ede8;--t2:#8a8680;--t3:#4a4642;--ac:#c8a860;--line:rgba(255,255,255,.06)}
-html{font-size:16px;-webkit-font-smoothing:antialiased;scroll-behavior:smooth;background:#050505}
-body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--t1);line-height:1.5;font-weight:400;overflow-x:hidden}
-.hero{position:relative;height:100vh;width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.hero-bg{position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 70% 50% at 50% 40%,#0d0d0d,#050505,#000);pointer-events:none}
-.hero-bg::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='0.4' fill='rgba(255,255,255,0.12)'/%3E%3C/svg%3E");opacity:.6}
-.hero-content{position:relative;z-index:1;width:100%;height:100%;padding:80px 64px}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr auto 1fr;height:100%;gap:0;align-items:end}
-.hl-tl{grid-column:1;grid-row:1;align-self:start;padding-top:20px}
-.hl-tl .eyebrow{font-size:.55rem;font-weight:600;letter-spacing:.3em;color:var(--ac);text-transform:uppercase;margin-bottom:16px}
-.hl-tl h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,9vw,8rem);font-weight:900;line-height:.88;letter-spacing:-.03em;color:var(--t1)}
-.hl-tl h1 .line2{display:block;margin-left:.3em;color:transparent;stroke:1.5px var(--t1);-webkit-text-stroke:1.5px var(--t1)}
-.hl-tr{grid-column:3;grid-row:1;align-self:start;justify-self:end;text-align:right;padding-top:20px}
-.hl-tr .stat-big{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:900;color:var(--ac);line-height:1}
-.hl-tr .stat-label{font-size:.5rem;font-weight:600;letter-spacing:.25em;color:var(--t3);text-transform:uppercase;margin-top:4px}
-.hl-ctr{grid-column:2;grid-row:2;text-align:center;align-self:center;justify-self:center}
-.hl-ctr .brand{font-size:clamp(1.5rem,3.5vw,2.5rem);font-weight:900;letter-spacing:.08em;color:var(--t1)}
-.hl-ctr .tagline{font-size:.6rem;font-weight:500;letter-spacing:.35em;color:var(--t3);text-transform:uppercase;margin-top:10px}
-.hl-bl{grid-column:1;grid-row:3;align-self:end;padding-bottom:40px}
-.hl-bl .stat-big{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:900;color:var(--ac);line-height:1}
-.hl-bl .stat-label{font-size:.5rem;font-weight:600;letter-spacing:.25em;color:var(--t3);text-transform:uppercase;margin-top:4px}
-.hl-br{grid-column:3;grid-row:3;align-self:end;justify-self:end;text-align:right;padding-bottom:40px}
-.hl-br p{font-size:.62rem;font-weight:400;color:var(--t2);line-height:2;letter-spacing:.04em;max-width:180px}
-.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px}
-.scroll-hint span{font-size:.5rem;font-weight:600;letter-spacing:.3em;color:var(--t3);text-transform:uppercase}
-.scroll-hint .line{width:1px;height:40px;background:linear-gradient(180deg,var(--ac),transparent)}
-.deco-line{position:absolute;background:var(--line);z-index:1}.deco-line.h{height:1px;left:0;right:0}.deco-line.v{width:1px;top:0;bottom:0}
-.deco-line.h1{top:15%}.deco-line.h2{bottom:25%}.deco-line.v1{left:10%}.deco-line.v2{right:15%}
-.strata{position:relative;z-index:2;background:var(--bg);min-height:100vh}
-.strata-header{position:relative;padding:120px 64px 60px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
-.strata-header .layer-label{font-size:.5rem;font-weight:700;letter-spacing:.4em;color:var(--ac);text-transform:uppercase;margin-bottom:24px}
-.strata-header h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,4rem);font-weight:900;line-height:1.1;letter-spacing:-.02em}
-.strata-header h2 em{font-style:italic;color:var(--ac)}
-.geo-layers{position:relative;padding:0 64px 40px}
-.geo-layer{position:relative;padding:36px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 2fr 1fr;gap:40px;align-items:center}
-.geo-layer:last-child{border-bottom:1px solid var(--line)}
-.geo-layer .gl-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--ac);opacity:.3}
-.geo-layer .gl-title{font-size:.9rem;font-weight:700;letter-spacing:.04em;line-height:1.4}
-.geo-layer .gl-title span{display:block;font-size:.6rem;font-weight:500;letter-spacing:.2em;color:var(--t3);text-transform:uppercase;margin-top:4px}
-.geo-layer .gl-desc{font-size:.75rem;color:var(--t2);line-height:1.8}
-.geo-layer .gl-stat{text-align:right;font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--ac)}
-.geo-layer .gl-stat span{display:block;font-size:.45rem;font-weight:600;letter-spacing:.3em;color:var(--t3);text-transform:uppercase;margin-top:2px}
-.case-section{padding:80px 64px 40px}
-.case-section .layer-label{font-size:.5rem;font-weight:700;letter-spacing:.4em;color:var(--ac);text-transform:uppercase;margin-bottom:32px}
-.case-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:16px}
-.case-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);padding:28px 22px;transition:all .4s;cursor:pointer;text-decoration:none;color:inherit;display:block;position:relative;overflow:hidden}
-.case-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--ac),transparent);opacity:0;transition:opacity .4s}
-.case-card:hover{background:rgba(255,255,255,.04);border-color:rgba(200,168,96,.15)}.case-card:hover::before{opacity:.6}
-.case-card .cc-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:rgba(200,168,96,.1);margin-bottom:12px}
-.case-card h4{font-size:.8rem;font-weight:700;margin-bottom:6px;letter-spacing:.02em}
-.case-card p{font-size:.65rem;color:var(--t2);line-height:1.6}
-.case-card .cc-tag{display:inline-block;margin-top:10px;font-size:.5rem;font-weight:600;letter-spacing:.15em;color:var(--ac);text-transform:uppercase}
-.contact-strip{position:relative;padding:80px 64px 100px;border-top:1px solid rgba(255,255,255,.04);text-align:center}
-.contact-strip h3{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;margin-bottom:12px}
-.contact-strip p{font-size:.7rem;color:var(--t2);letter-spacing:.08em;margin-bottom:36px}
-.contact-strip .links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
-.contact-strip .links a,.contact-strip .links span{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border:1px solid rgba(255,255,255,.08);color:var(--t1);text-decoration:none;font-size:.75rem;font-weight:500;letter-spacing:.04em;transition:all .3s;cursor:pointer}
-.contact-strip .links a:hover,.contact-strip .links span:hover{border-color:var(--ac);background:rgba(200,168,96,.04)}
-.footer-note{text-align:center;padding:20px;font-size:.55rem;color:var(--t3);letter-spacing:.15em;text-transform:uppercase;border-top:1px solid rgba(255,255,255,.02)}
-@media(max-width:768px){.hero-content{padding:60px 32px}.hero-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto auto}.hl-tl{grid-column:1/3;grid-row:1}.hl-tr{grid-column:2;grid-row:1;padding-top:24px}.hl-ctr{grid-column:1/3;grid-row:2;padding:40px 0}.hl-bl{grid-column:1;grid-row:3}.hl-br{grid-column:2;grid-row:3}.geo-layer{grid-template-columns:1fr;gap:12px;padding:28px 0}.geo-layer .gl-stat{text-align:left}.strata-header,.case-section,.contact-strip,.geo-layers{padding-left:32px;padding-right:32px}.deco-line.v1,.deco-line.v2{display:none}}
-@media(max-width:1024px){.case-row{grid-template-columns:1fr 1fr}}@media(max-width:600px){.case-row{grid-template-columns:1fr}}
-</style></head>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #050505;
+  color: #fff;
+  overflow-x: hidden;
+}
+::selection { background: rgba(255, 255, 255, 0.15); color: #fff; }
+
+/* ============ Hero ============ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #050505;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero__bg-layer {
+  position: absolute;
+  inset: 0;
+}
+.hero__bg-layer--1 {
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(255,255,255,0.03) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 80% 30%, rgba(180,140,80,0.04) 0%, transparent 60%);
+}
+.hero__bg-layer--2 {
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(255,255,255,0.015) 1px, rgba(255,255,255,0.015) 2px);
+  opacity: 0.3;
+}
+.hero__bg-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 60% 70% at 50% 50%, black 30%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 50% 50%, black 30%, transparent 70%);
+}
+
+.hero__particles {
+  position: absolute; inset: 0;
+  overflow: hidden;
+}
+.particle {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  animation: float-particle linear infinite;
+}
+@keyframes float-particle {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+}
+
+.hero__scanline {
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(0deg,
+    transparent, transparent 3px,
+    rgba(255,255,255,0.008) 3px, rgba(255,255,255,0.008) 4px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero__content {
+  position: relative; z-index: 2;
+  width: 100%; height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  padding: 0 6vw;
+}
+
+.hero__eyebrow {
+  position: absolute;
+  top: 3.2rem; left: 6vw;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+.hero__eyebrow span { display: block; margin-top: 0.3rem; font-size: 0.6rem; letter-spacing: 0.2em; }
+
+.hero__stat-left {
+  position: absolute;
+  left: 6vw;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: left;
+}
+.hero__stat-left .num {
+  font-size: 4.5vw;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #fff 30%, rgba(255,255,255,0.4));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero__stat-left .label {
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-top: 0.5rem;
+}
+
+.hero__stat-right {
+  position: absolute;
+  right: 6vw;
+  bottom: 15vh;
+  text-align: right;
+}
+.hero__stat-right .num {
+  font-size: 3.5vw;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, rgba(200,170,120,0.9) 20%, rgba(255,255,255,0.3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero__stat-right .label {
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(200,170,120,0.4);
+  margin-top: 0.4rem;
+}
+
+.hero__headline {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__word {
+  position: absolute;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.hero__word--protect {
+  font-size: 12vw;
+  left: 18vw;
+  top: 18vh;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+.hero__word--data {
+  font-size: 16vw;
+  right: 4vw;
+  bottom: 25vh;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  text-shadow: none;
+}
+
+.hero__sub {
+  position: absolute;
+  left: 6vw;
+  bottom: 38vh;
+  max-width: 28vw;
+}
+.hero__sub p {
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1.9;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.3);
+}
+.hero__sub .line {
+  width: 2rem; height: 1px;
+  background: rgba(255,255,255,0.15);
+  margin-bottom: 1rem;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  z-index: 3;
+}
+.hero__scroll-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.4), transparent);
+  animation: scroll-pulse 2s ease-in-out infinite;
+}
+@keyframes scroll-pulse {
+  0%, 100% { opacity: 0.2; transform: scaleY(0.5); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+.hero__scroll-text {
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+}
+
+.hero__corner {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+.hero__corner--tl { top: 2rem; left: 2rem; border-top: 1px solid rgba(255,255,255,0.06); border-left: 1px solid rgba(255,255,255,0.06); width: 3rem; height: 3rem; }
+.hero__corner--br { bottom: 2rem; right: 2rem; border-bottom: 1px solid rgba(255,255,255,0.06); border-right: 1px solid rgba(255,255,255,0.06); width: 3rem; height: 3rem; }
+
+/* ============ Content Section (Strata) ============ */
+.strata {
+  position: relative;
+  z-index: 2;
+  background: #050505;
+}
+
+.strata__divider {
+  position: relative;
+  height: 20vh;
+  background: linear-gradient(180deg, transparent 0%, #0a0a0a 100%);
+  z-index: 2;
+}
+.strata__divider-label {
+  position: absolute;
+  top: 50%; left: 6vw;
+  transform: translateY(-50%);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.15);
+  font-weight: 300;
+}
+.strata__divider-line {
+  position: absolute;
+  top: 50%; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 50%, transparent 100%);
+}
+
+.stratum {
+  position: relative;
+  padding: 0 6vw;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform, opacity;
+}
+.stratum.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stratum__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.stratum__number {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.15);
+  white-space: nowrap;
+  padding-top: 0.3rem;
+  flex-shrink: 0;
+}
+.stratum__title-group h2 {
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 0.8rem;
+}
+.stratum__title-group .sub {
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.25);
+  text-transform: uppercase;
+}
+
+.stratum__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.stratum__card {
+  position: relative;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 0;
+  padding: 2rem;
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+.stratum__card:hover {
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(255,255,255,0.08);
+}
+.stratum__card-icon {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: 200;
+  color: rgba(255,255,255,0.1);
+}
+.stratum__card h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  color: rgba(255,255,255,0.7);
+}
+.stratum__card p {
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.4);
+}
+.stratum__card ul {
+  list-style: none;
+  padding: 0;
+}
+.stratum__card ul li {
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.4);
+  padding-left: 1.2rem;
+  position: relative;
+}
+.stratum__card ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: rgba(255,255,255,0.1);
+}
+.stratum__card ul li strong {
+  color: rgba(255,255,255,0.7);
+  font-weight: 500;
+}
+
+.stratum--full .stratum__body {
+  grid-template-columns: 1fr;
+}
+.stratum--full .stratum__card {
+  max-width: 100%;
+}
+
+/* Full-width stratum accent */
+.stratum--accent {
+  background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.01) 50%, transparent 100%);
+  padding: 6rem 6vw;
+  margin: 2rem 0;
+}
+.stratum--accent .stratum__card {
+  border-color: rgba(200,170,120,0.08);
+  background: rgba(255,255,255,0.015);
+}
+
+.stratum--accent .stratum__title-group h2 {
+  color: rgba(200,170,120,0.8);
+}
+
+/* Hall of fame / highlight card */
+.stratum__highlight {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  padding: 3rem;
+  margin: 1rem 0 4rem;
+  border: 1px solid rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.01);
+}
+.stratum__highlight-num {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  background: linear-gradient(135deg, rgba(200,170,120,0.6), rgba(255,255,255,0.1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.stratum__highlight-content h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: rgba(200,170,120,0.6);
+}
+.stratum__highlight-content p {
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.35);
+}
+
+.stratum__grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+.stratum__grid-3 .stratum__card {
+  padding: 1.5rem;
+}
+
+/* ============ Footer ============ */
+.footer {
+  padding: 4rem 6vw;
+  border-top: 1px solid rgba(255,255,255,0.03);
+  text-align: center;
+}
+.footer p {
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.1);
+  font-weight: 300;
+}
+.footer .brand {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  margin-bottom: 1rem;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 768px) {
+  .hero__content { padding: 0 5vw; }
+  .hero__eyebrow { left: 5vw; font-size: 0.55rem; }
+  .hero__word--protect { font-size: 18vw; left: 5vw; top: 22vh; }
+  .hero__word--data { font-size: 22vw; right: 3vw; bottom: 30vh; }
+  .hero__stat-left { left: 5vw; }
+  .hero__stat-left .num { font-size: 10vw; }
+  .hero__stat-right { right: 5vw; bottom: 18vh; }
+  .hero__stat-right .num { font-size: 8vw; }
+  .hero__sub { left: 5vw; bottom: 42vh; max-width: 50vw; }
+  .hero__sub p { font-size: 0.6rem; }
+  .stratum { padding: 0 5vw; }
+  .stratum__body { grid-template-columns: 1fr; }
+  .stratum__highlight { grid-template-columns: 1fr; padding: 2rem; }
+  .stratum__grid-3 { grid-template-columns: 1fr; }
+  .stratum--accent { padding: 4rem 5vw; }
+  .stratum__header { flex-direction: column; gap: 0.5rem; }
+}
+</style>
+</head>
 <body>
-<div class="hero-bg"></div>
-<section class="hero">
-<div class="deco-line h h1"></div><div class="deco-line h h2"></div><div class="deco-line v v1"></div><div class="deco-line v v2"></div>
-<div class="hero-content"><div class="hero-grid">
-<div class="hl-tl" data-parallax="0.3"><div class="eyebrow">ARTIFICIAL INTELLIGENCE</div><h1>PROTECT<span class="line2">DATA</span></h1></div>
-<div class="hl-tr" data-parallax="0.9"><div class="stat-big">+1.5B</div><div class="stat-label">AI Models Trained</div></div>
-<div class="hl-ctr" data-parallax="0.6"><div class="brand">AI 莎莎</div><div class="tagline">POWERED BY INTELLIGENCE</div></div>
-<div class="hl-bl" data-parallax="0.4"><div class="stat-big">+300K</div><div class="stat-label">Course Views</div></div>
-<div class="hl-br" data-parallax="0.7"><p>AI时代的竞争力<br>不在于你会不会用工具<br>而在于你敢不敢重新定义<br>自己的赛道</p></div>
-</div></div>
-<div class="scroll-hint" data-parallax="1.2"><span>Scroll</span><div class="line"></div></div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero__bg">
+    <div class="hero__bg-layer hero__bg-layer--1"></div>
+    <div class="hero__bg-grid"></div>
+  </div>
+  <div class="hero__scanline"></div>
+
+  <div class="hero__particles" id="particles"></div>
+
+  <div class="hero__corner hero__corner--tl"></div>
+  <div class="hero__corner hero__corner--br"></div>
+
+  <div class="hero__eyebrow">
+    抖音直播增长白皮书
+    <span>2026 EDITION</span>
+  </div>
+
+  <div class="hero__content">
+    <div class="hero__word hero__word--protect">PROTECT</div>
+    <div class="hero__word hero__word--data">DATA</div>
+
+    <div class="hero__sub">
+      <div class="line"></div>
+      <p>从零到爆款的完整增长体系<br>洞悉算法、规避风险、精准起号</p>
+    </div>
+
+    <div class="hero__stat-left">
+      <div class="num">+1.5B</div>
+      <div class="label">日均直播电商GMV</div>
+    </div>
+
+    <div class="hero__stat-right">
+      <div class="num">+300K</div>
+      <div class="label">活跃直播间数量</div>
+    </div>
+  </div>
+
+  <div class="hero__scroll">
+    <div class="hero__scroll-line"></div>
+    <span class="hero__scroll-text">Scroll</span>
+  </div>
 </section>
-<section class="strata">
-<div class="strata-header"><div class="layer-label">// DIG DEEPER</div><h2>把AI从概念<br>变成你的<em>生产力</em></h2></div>
-<div class="geo-layers">
-<div class="geo-layer"><div class="gl-num">01</div><div class="gl-title">直播教学<span>LIVE STREAM TEACHING</span></div><div class="gl-desc">前美年集团团队经理。3年直播教学沉淀，200+学员陪跑经验。从赛道选择到话术设计，全链路方法论。</div><div class="gl-stat">3年+<span>教学经验</span></div></div>
-<div class="geo-layer"><div class="gl-num">02</div><div class="gl-title">AI普惠课程<span>AI FOR EVERYONE</span></div><div class="gl-desc">6门核心课程覆盖入门到企业级。ChatGPT到AI绘画，AI短视频到办公提效。每门课经过200+学员验证。</div><div class="gl-stat">200+<span>带教学员</span></div></div>
-<div class="geo-layer"><div class="gl-num">03</div><div class="gl-title">企业AI服务<span>ENTERPRISE AI</span></div><div class="gl-desc">为企业量身定制AI解决方案。从需求诊断到工具部署，从培训到持续优化。可验证的ROI。</div><div class="gl-stat">20+<span>企业案例</span></div></div>
-<div class="geo-layer"><div class="gl-num">04</div><div class="gl-title">内容矩阵<span>CONTENT MATRIX</span></div><div class="gl-desc">AI驱动的短视频批量生产系统。选题→写稿→配音→剪辑全自动化。日产出200+条，人力成本降70%。</div><div class="gl-stat">10万+<span>课程观看</span></div></div>
-</div>
-<div class="case-section"><div class="layer-label">// PROVEN CASES</div><div class="case-row"><a href="case-detail.html#case-1" class="case-card"><div class="cc-num">01</div><h4>某传媒公司全员AI提效培训</h4><p>30人团队2周培训，内容生产提效300%</p><span class="cc-tag">Enterprise</span></a><a href="case-detail.html#case-2" class="case-card"><div class="cc-num">02</div><h4>直播AI智能话术生成器</h4><p>大语言模型驱动，转化率+62%</p><span class="cc-tag">Tooling</span></a><a href="case-detail.html#case-3" class="case-card"><div class="cc-num">03</div><h4>AI短视频矩阵批量生产</h4><p>日产出200+条，人本降70%</p><span class="cc-tag">System</span></a><a href="case-detail.html#case-4" class="case-card"><div class="cc-num">04</div><h4>30天新人AI陪跑计划</h4><p>90%学员30天内首单变现</p><span class="cc-tag">Coaching</span></a></div><div class="case-row"><a href="case-detail.html#case-5" class="case-card"><div class="cc-num">05</div><h4>AI直播数据实时分析看板</h4><p>多平台聚合+诊断，效率×5</p><span class="cc-tag">Data</span></a><a href="case-detail.html#case-6" class="case-card"><div class="cc-num">06</div><h4>小红书AI内容矩阵运营</h4><p>粉丝增长500%，1人+AI=5人</p><span class="cc-tag">Content</span></a><a href="case-detail.html#case-7" class="case-card"><div class="cc-num">07</div><h4>企业AI客服机器人部署</h4><p>7×24h智能客服，解答率85%</p><span class="cc-tag">Service</span></a><a href="case-detail.html#case-8" class="case-card"><div class="cc-num">08</div><h4>AI虚拟主播24h无人直播</h4><p>ROI 1:8，月GMV 50万+</p><span class="cc-tag">Virtual</span></a></div></div>
-<div class="contact-strip"><h3>开始你的<em style="font-style:italic;color:var(--ac)">AI之旅</em></h3><p>不管想学AI还是需要方案，聊聊看</p><div class="links"><a href="tel:18888886666">+86 188-8888-6666</a><span onclick="navigator.clipboard?.writeText('25257758')">QQ 25257758</span></div></div>
-<div class="footer-note">云千源广告传媒 &copy; 2026 AI莎莎</div>
+
+<!-- ============ STRATA / CONTENT ============ -->
+<section class="strata" id="strata">
+  <div class="strata__divider">
+    <div class="strata__divider-line"></div>
+    <span class="strata__divider-label">DATA STRATUM · 内容层析</span>
+  </div>
+
+  <!-- Stratum 1: Account Prep -->
+  <div class="stratum" data-reveal>
+    <div class="stratum__header">
+      <div class="stratum__number">01</div>
+      <div class="stratum__title-group">
+        <h2>新号启动 · 开局即合规</h2>
+        <div class="sub">开播前检查清单 &amp; 账号风控核心原则</div>
+      </div>
+    </div>
+    <div class="stratum__body">
+      <div class="stratum__card">
+        <div class="stratum__card-icon">▤</div>
+        <h3>开播前检查清单</h3>
+        <p><strong>账号检查</strong><br>
+        确认账号无违规记录、限流提醒；标题突出福利/核心看点，封面清晰美观有吸引力；提前1-3天发布预告视频引导预约。</p>
+        <p style="margin-top:1rem"><strong>设备检查</strong><br>
+        摄像头对焦清晰、收音无杂音、网络测速达标；灯光角度确保主播面部光线均匀，无阴影过曝；测试OBS/抖音直播伴侣。</p>
+        <p style="margin-top:1rem"><strong>流程准备</strong><br>
+        直播脚本明确各环节时长、产品介绍顺序、福利节点；核对商品价格库存规格；助理、场控分工明确。</p>
+      </div>
+      <div class="stratum__card">
+        <div class="stratum__card-icon">◈</div>
+        <h3>8 条风控核心原则</h3>
+        <ul>
+          <li><strong>01</strong> 不急着开直播，先养号</li>
+          <li><strong>02</strong> 不要主动分享直播间</li>
+          <li><strong>03</strong> 不要盲目投流付费</li>
+          <li><strong>04</strong> 不要发红包、福袋</li>
+          <li><strong>05</strong> 拉黑过滤清理标签不准的流量</li>
+          <li><strong>06</strong> 尽量不闲聊、不接话、不乱回答问题</li>
+          <li><strong>07</strong> 画面简洁，固定机位，不换场景</li>
+          <li><strong>08</strong> 尽量不要主动让用户打1、666</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stratum 2: Account Nurturing -->
+  <div class="stratum" data-reveal>
+    <div class="stratum__header">
+      <div class="stratum__number">02</div>
+      <div class="stratum__title-group">
+        <h2>养号体系 · 模拟高价值用户</h2>
+        <div class="sub">3天标准化操作 · AI-9.0 风控机制下的养号法则</div>
+      </div>
+    </div>
+    <div class="stratum__body">
+      <div class="stratum__card">
+        <div class="stratum__card-icon">✦</div>
+        <h3>核心逻辑</h3>
+        <p>基于抖音 AI-9.0 风控机制，养号核心已从「单纯做数据」升级为「全方位模拟真实高价值用户行为」。通过3-7天标准化操作，让账号被判定为「真实、活跃、垂直」的优质创作者。</p>
+      </div>
+      <div class="stratum__card">
+        <div class="stratum__card-icon">▣</div>
+        <h3>设备与网络规范</h3>
+        <p>一机一卡一号独立环境。优先使用4G/5G蜂窝数据，严禁公共WiFi、共享热点。多账号需独立设备且间隔1米以上，避免信号关联触发风控。</p>
+      </div>
+    </div>
+    <div class="stratum__highlight">
+      <div class="stratum__highlight-num">3 DAYS</div>
+      <div class="stratum__highlight-content">
+        <h4>每日操作标准</h4>
+        <p>分2个时段完成，每时段15-20分钟。对标内容浏览占70%以上，完播50%以上再划走。每天10-15次点赞、2-3条15字以上评论、关注2-3个对标账号。进入对标直播间停留至少10分钟并主动评论，每周赠送1-2次小额礼物。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stratum 3: Live Start -->
+  <div class="stratum" data-reveal>
+    <div class="stratum__header">
+      <div class="stratum__number">03</div>
+      <div class="stratum__title-group">
+        <h2>直播起号 · 慢起号5大核心</h2>
+        <div class="sub">打标签 &amp; 数据递增 &amp; 慢推流机制</div>
+      </div>
+    </div>
+    <div class="stratum__body">
+      <div class="stratum__card">
+        <div class="stratum__card-icon">◎</div>
+        <h3>打标签底层逻辑</h3>
+        <p>平台对直播间的识别分三维度：画面元素、主播语音、屏幕文字。标签精准度直接决定流量持续性。初始流量为泛流量，若有用户点击进入并停留10秒以上，平台初步判定内容匹配度，打上对应标签后持续推送同类型用户。</p>
+      </div>
+      <div class="stratum__card">
+        <div class="stratum__card-icon">◉</div>
+        <h3>无标签的后果</h3>
+        <p>无标签直播间仅能获得开播初始的一波流量，后续会出现断流情况。冷启动期算法模型未建立，泛流量会彻底打乱账号标签。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stratum 4: People-Product-Scene -->
+  <div class="stratum stratum--accent" data-reveal>
+    <div class="stratum__header">
+      <div class="stratum__number">04</div>
+      <div class="stratum__title-group">
+        <h2>人货场 · 直播间的灵魂基因</h2>
+        <div class="sub">橱窗带货开通与运营全流程</div>
+      </div>
+    </div>
+    <div class="stratum__grid-3">
+      <div class="stratum__card">
+        <div class="stratum__card-icon">◆</div>
+        <h3>人 — 直播的灵魂</h3>
+        <p>人设定位决定信任感。案例分析：普通宝妈亲民生活型人设——居家宝妈+生活好物分享+真实育儿，温柔亲切、接地气、素颜淡妆、居家感。</p>
+      </div>
+      <div class="stratum__card">
+        <div class="stratum__card-icon">■</div>
+        <h3>货 — 选品与定价</h3>
+        <p>商品价格阶梯合理，福利款+主推款+利润款结构化布局。橱窗商品需与直播间定位一致，避免上下架频繁触发审核。</p>
+      </div>
+      <div class="stratum__card">
+        <div class="stratum__card-icon">▲</div>
+        <h3>场 — 场景化呈现</h3>
+        <p>画面简洁统一，与领域定位匹配。知识类用纯色背景墙+书架，美食类用整洁厨房。避免杂乱背景、动态背景、虚拟背景（2026年被重点风控）。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stratum 5: Algorithm Deep Dive -->
+  <div class="stratum" data-reveal>
+    <div class="stratum__header">
+      <div class="stratum__number">05</div>
+      <div class="stratum__title-group">
+        <h2>算法全解析 · 推荐引擎底层逻辑</h2>
+        <div class="sub">2026年5月 · 权重规则 &amp; 流量晋级体系</div>
+      </div>
+    </div>
+    <div class="stratum__body">
+      <div class="stratum__card">
+        <div class="stratum__card-icon">✦</div>
+        <h3>算法标签构建核心逻辑</h3>
+        <ul>
+          <li>推荐得分的核心公式：<strong>用户反馈 × 内容质量 × 标签匹配度</strong></li>
+          <li>平台流量规则底层要求：<strong>完播率 &gt; 互动率 &gt; 转粉率 &gt; 成交转化</strong></li>
+          <li>流量池晋级模型：<strong>500 → 5000 → 5万 → 50万 → 百万级</strong></li>
+        </ul>
+      </div>
+      <div class="stratum__card">
+        <div class="stratum__card-icon">◈</div>
+        <h3>合规红线</h3>
+        <ul>
+          <li>禁止使用绝对化用语：最高、最、第一、顶级等</li>
+          <li>禁止虚假宣传：特效、速效、瘦身、治疗等医疗功效词</li>
+          <li>禁止危害未成年人内容：早恋、校园暴力、炫富攀比</li>
+          <li>违规触发平台风控阈值，轻则限流10-30分钟，重则断播封禁</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stratum 6: 7-Day Slow Push -->
+  <div class="stratum" data-reveal>
+    <div class="stratum__header">
+      <div class="stratum__number">06</div>
+      <div class="stratum__title-group">
+        <h2>7天慢推流 · 新规起号方案</h2>
+        <div class="sub">长效经营 · 流量破局 · 2026年应对策略</div>
+      </div>
+    </div>
+    <div class="stratum__body">
+      <div class="stratum__card">
+        <div class="stratum__card-icon">➊</div>
+        <h3>Day 1 · 冷启动验证期</h3>
+        <p><strong>场观目标：0-500人</strong><br>
+        算法模型未建立阶段。聚焦内容验证，核心动作：完成开播标签校验、基础话术框架搭建、画面和环境测试。</p>
+      </div>
+      <div class="stratum__card">
+        <div class="stratum__card-icon">➋</div>
+        <h3>Day 2-3 · 流量试探期</h3>
+        <p><strong>场观目标：500-2000人</strong><br>
+        平台开始小范围推送。验证标签准确性、优化停留时长、观察转化数据，根据实时数据调整话术和排品节奏。</p>
+      </div>
+    </div>
+    <div class="stratum__highlight">
+      <div class="stratum__highlight-num">7 DAYS</div>
+      <div class="stratum__highlight-content">
+        <h4>慢推流深度逻辑</h4>
+        <p>2026年平台投流规则新约束：自然流量与付费流量双机制。冷启动期账号风控观察，话术违规处罚力度是成熟账号的2-3倍。禁止批量关注/取关、禁止脚本或挂机工具、禁止养号期发布作品或开播。严格把控话术边界是冷启动期稳定推流的核心前提。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stratum 7: Avoidance Guide -->
+  <div class="stratum stratum--full" data-reveal>
+    <div class="stratum__header">
+      <div class="stratum__number">07</div>
+      <div class="stratum__title-group">
+        <h2>违规规避 · 运营避坑自查</h2>
+        <div class="sub">操作红线 &amp; 违规话术 &amp; 内容合规手册</div>
+      </div>
+    </div>
+    <div class="stratum__body">
+      <div class="stratum__card">
+        <div class="stratum__card-icon">⚠</div>
+        <h3>操作红线</h3>
+        <ul>
+          <li>一机一卡一号，禁止同一手机切换多个抖音号</li>
+          <li>不要花钱互粉、互赞、刷粉、刷赞，毫无意义且降权</li>
+          <li>不要过于频繁发布作品，每天控制在合理数量</li>
+          <li>禁止使用最高、最低、最、最具等绝对化用语</li>
+          <li>禁止赌博、烟草、吸毒等违法宣传及不良行为</li>
+          <li>禁止恶搞人民币、嘲笑弱势群体、卖惨营销</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
 </section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="brand">Douyin · 直播增长白皮书 2026</div>
+  <p>基于最新算法分析与实操经验整理 · 适合新号冷启动至规模化运营全周期</p>
+</footer>
+
 <script>
-(function(){var hero=document.querySelector('.hero');var els=document.querySelectorAll('[data-parallax]');function onScroll(){var sy=window.scrollY;var hh=hero.offsetHeight;if(sy>hh)return;var pct=sy/hh;els.forEach(function(el){var sp=parseFloat(el.dataset.parallax)||0.5;el.style.transform='translateY('+(pct*sp*60)+'px)';el.style.opacity=1-pct*1.2})}window.addEventListener('scroll',onScroll,{passive:true})})();
-</script></body>
+// Particles
+(function() {
+  const container = document.getElementById('particles');
+  if (!container) return;
+  for (let i = 0; i < 40; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random() * 2 + 1;
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.top = Math.random() * 100 + '%';
+    p.style.animationDuration = (Math.random() * 15 + 10) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    p.style.opacity = Math.random() * 0.3;
+    container.appendChild(p);
+  }
+})();
+
+// Scroll reveal observer
+(function() {
+  const els = document.querySelectorAll('[data-reveal]');
+  if (!els.length) return;
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  els.forEach(el => obs.observe(el));
+})();
+</script>
+</body>
 </html>
