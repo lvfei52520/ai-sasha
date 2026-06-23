@@ -9,6 +9,31 @@
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+
+:root {
+  --accent-orange: #FF6B35;
+  --accent-cyan: #00D4AA;
+  --accent-amber: #FFB800;
+  --accent-magenta: #FF3366;
+  --accent-purple: #8B5CF6;
+  --text-primary: rgba(255,255,255,0.92);
+  --text-secondary: rgba(255,255,255,0.78);
+  --text-muted: rgba(255,255,255,0.55);
+}
+
+.stratum--orange { border-left: 2px solid var(--accent-orange); }
+.stratum--orange .stratum__number { color: var(--accent-orange); }
+.stratum--orange .stratum__title-group h2 { color: var(--accent-orange); }
+.stratum--cyan { border-left: 2px solid var(--accent-cyan); }
+.stratum--cyan .stratum__number { color: var(--accent-cyan); }
+.stratum--cyan .stratum__title-group h2 { color: var(--accent-cyan); }
+.stratum--amber { border-left: 2px solid var(--accent-amber); }
+.stratum--amber .stratum__number { color: var(--accent-amber); }
+.stratum--amber .stratum__title-group h2 { color: var(--accent-amber); }
+.stratum--magenta { border-left: 2px solid var(--accent-magenta); }
+.stratum--magenta .stratum__number { color: var(--accent-magenta); }
+.stratum--magenta .stratum__title-group h2 { color: var(--accent-magenta); }
+
 body {
   font-family: 'Inter', sans-serif;
   background: #050505;
@@ -97,7 +122,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.6);
 }
 .hero__eyebrow span { display: block; margin-top: 0.3rem; font-size: 0.6rem; letter-spacing: 0.2em; }
 
@@ -113,7 +138,7 @@ body {
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, #fff 30%, rgba(255,255,255,0.4));
+  background: linear-gradient(135deg, #fff 30%, var(--accent-cyan));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -123,7 +148,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.68);
   margin-top: 0.5rem;
 }
 
@@ -138,7 +163,7 @@ body {
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, rgba(200,170,120,0.9) 20%, rgba(255,255,255,0.3));
+  background: linear-gradient(135deg, #FF6B35 20%, rgba(255,255,255,0.3));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -148,7 +173,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(200,170,120,0.4);
+  color: rgba(255,107,53,0.6);
   margin-top: 0.4rem;
 }
 
@@ -173,7 +198,7 @@ body {
   font-size: 12vw;
   left: 18vw;
   top: 18vh;
-  background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.1) 100%);
+  background: linear-gradient(180deg, #ffffff 0%, var(--accent-orange) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -185,7 +210,7 @@ body {
   font-size: 16vw;
   right: 4vw;
   bottom: 25vh;
-  background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.7) 100%);
+  background: linear-gradient(180deg, var(--accent-cyan) 0%, #ffffff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -205,7 +230,7 @@ body {
   font-weight: 300;
   line-height: 1.9;
   letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.68);
 }
 .hero__sub .line {
   width: 2rem; height: 1px;
@@ -236,7 +261,7 @@ body {
   font-size: 0.55rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.5);
 }
 
 .hero__corner {
@@ -267,7 +292,7 @@ body {
   font-size: 0.6rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.4);
   font-weight: 300;
 }
 .strata__divider-line {
@@ -302,7 +327,7 @@ body {
   font-size: 0.65rem;
   font-weight: 500;
   letter-spacing: 0.15em;
-  color: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.4);
   white-space: nowrap;
   padding-top: 0.3rem;
   flex-shrink: 0;
@@ -318,11 +343,36 @@ body {
   font-size: 0.7rem;
   font-weight: 300;
   letter-spacing: 0.1em;
-  color: rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.6);
   text-transform: uppercase;
 }
 
-.stratum__body {
+.stratum__
+:root {
+  --accent-orange: #FF6B35;
+  --accent-cyan: #00D4AA;
+  --accent-amber: #FFB800;
+  --accent-magenta: #FF3366;
+  --accent-purple: #8B5CF6;
+  --text-primary: rgba(255,255,255,0.92);
+  --text-secondary: rgba(255,255,255,0.78);
+  --text-muted: rgba(255,255,255,0.55);
+}
+
+.stratum--orange { border-left: 2px solid var(--accent-orange); }
+.stratum--orange .stratum__number { color: var(--accent-orange); }
+.stratum--orange .stratum__title-group h2 { color: var(--accent-orange); }
+.stratum--cyan { border-left: 2px solid var(--accent-cyan); }
+.stratum--cyan .stratum__number { color: var(--accent-cyan); }
+.stratum--cyan .stratum__title-group h2 { color: var(--accent-cyan); }
+.stratum--amber { border-left: 2px solid var(--accent-amber); }
+.stratum--amber .stratum__number { color: var(--accent-amber); }
+.stratum--amber .stratum__title-group h2 { color: var(--accent-amber); }
+.stratum--magenta { border-left: 2px solid var(--accent-magenta); }
+.stratum--magenta .stratum__number { color: var(--accent-magenta); }
+.stratum--magenta .stratum__title-group h2 { color: var(--accent-magenta); }
+
+body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
@@ -339,27 +389,30 @@ body {
 }
 .stratum__card:hover {
   background: rgba(255,255,255,0.03);
-  border-color: rgba(255,255,255,0.08);
+  border-color: var(--accent-orange);
 }
 .stratum__card-icon {
   font-size: 1.6rem;
   margin-bottom: 1rem;
   font-weight: 200;
-  color: rgba(255,255,255,0.1);
+  color: var(--accent-orange);
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
 }
+.stratum__card:hover .stratum__card-icon { opacity: 0.8; }
 .stratum__card h3 {
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 0.8rem;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.95);
 }
 .stratum__card p {
   font-size: 0.75rem;
   font-weight: 300;
   line-height: 1.8;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.82);
 }
 .stratum__card ul {
   list-style: none;
@@ -369,7 +422,7 @@ body {
   font-size: 0.75rem;
   font-weight: 300;
   line-height: 1.8;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.82);
   padding-left: 1.2rem;
   position: relative;
 }
@@ -377,14 +430,39 @@ body {
   content: '—';
   position: absolute;
   left: 0;
-  color: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.3);
 }
 .stratum__card ul li strong {
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.95);
   font-weight: 500;
 }
 
-.stratum--full .stratum__body {
+.stratum--full .stratum__
+:root {
+  --accent-orange: #FF6B35;
+  --accent-cyan: #00D4AA;
+  --accent-amber: #FFB800;
+  --accent-magenta: #FF3366;
+  --accent-purple: #8B5CF6;
+  --text-primary: rgba(255,255,255,0.92);
+  --text-secondary: rgba(255,255,255,0.78);
+  --text-muted: rgba(255,255,255,0.55);
+}
+
+.stratum--orange { border-left: 2px solid var(--accent-orange); }
+.stratum--orange .stratum__number { color: var(--accent-orange); }
+.stratum--orange .stratum__title-group h2 { color: var(--accent-orange); }
+.stratum--cyan { border-left: 2px solid var(--accent-cyan); }
+.stratum--cyan .stratum__number { color: var(--accent-cyan); }
+.stratum--cyan .stratum__title-group h2 { color: var(--accent-cyan); }
+.stratum--amber { border-left: 2px solid var(--accent-amber); }
+.stratum--amber .stratum__number { color: var(--accent-amber); }
+.stratum--amber .stratum__title-group h2 { color: var(--accent-amber); }
+.stratum--magenta { border-left: 2px solid var(--accent-magenta); }
+.stratum--magenta .stratum__number { color: var(--accent-magenta); }
+.stratum--magenta .stratum__title-group h2 { color: var(--accent-magenta); }
+
+body {
   grid-template-columns: 1fr;
 }
 .stratum--full .stratum__card {
@@ -398,12 +476,12 @@ body {
   margin: 2rem 0;
 }
 .stratum--accent .stratum__card {
-  border-color: rgba(200,170,120,0.08);
-  background: rgba(255,255,255,0.015);
+  border-color: rgba(0,212,170,0.15);
+  background: rgba(255,107,53,0.02);
 }
 
 .stratum--accent .stratum__title-group h2 {
-  color: rgba(200,170,120,0.8);
+  color: var(--accent-orange);
 }
 
 /* Hall of fame / highlight card */
@@ -421,7 +499,7 @@ body {
   font-weight: 900;
   letter-spacing: -0.06em;
   line-height: 1;
-  background: linear-gradient(135deg, rgba(200,170,120,0.6), rgba(255,255,255,0.1));
+  background: linear-gradient(135deg, #FFB800, rgba(255,255,255,0.1));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -432,13 +510,13 @@ body {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 1rem;
-  color: rgba(200,170,120,0.6);
+  color: #FFB800;
 }
 .stratum__highlight-content p {
   font-size: 0.75rem;
   font-weight: 300;
   line-height: 1.9;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.78);
 }
 
 .stratum__grid-3 {
@@ -460,7 +538,7 @@ body {
 .footer p {
   font-size: 0.6rem;
   letter-spacing: 0.15em;
-  color: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.3);
   font-weight: 300;
 }
 .footer .brand {
@@ -468,7 +546,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.5);
   margin-bottom: 1rem;
 }
 
@@ -485,7 +563,32 @@ body {
   .hero__sub { left: 5vw; bottom: 42vh; max-width: 50vw; }
   .hero__sub p { font-size: 0.6rem; }
   .stratum { padding: 0 5vw; }
-  .stratum__body { grid-template-columns: 1fr; }
+  .stratum__
+:root {
+  --accent-orange: #FF6B35;
+  --accent-cyan: #00D4AA;
+  --accent-amber: #FFB800;
+  --accent-magenta: #FF3366;
+  --accent-purple: #8B5CF6;
+  --text-primary: rgba(255,255,255,0.92);
+  --text-secondary: rgba(255,255,255,0.78);
+  --text-muted: rgba(255,255,255,0.55);
+}
+
+.stratum--orange { border-left: 2px solid var(--accent-orange); }
+.stratum--orange .stratum__number { color: var(--accent-orange); }
+.stratum--orange .stratum__title-group h2 { color: var(--accent-orange); }
+.stratum--cyan { border-left: 2px solid var(--accent-cyan); }
+.stratum--cyan .stratum__number { color: var(--accent-cyan); }
+.stratum--cyan .stratum__title-group h2 { color: var(--accent-cyan); }
+.stratum--amber { border-left: 2px solid var(--accent-amber); }
+.stratum--amber .stratum__number { color: var(--accent-amber); }
+.stratum--amber .stratum__title-group h2 { color: var(--accent-amber); }
+.stratum--magenta { border-left: 2px solid var(--accent-magenta); }
+.stratum--magenta .stratum__number { color: var(--accent-magenta); }
+.stratum--magenta .stratum__title-group h2 { color: var(--accent-magenta); }
+
+body { grid-template-columns: 1fr; }
   .stratum__highlight { grid-template-columns: 1fr; padding: 2rem; }
   .stratum__grid-3 { grid-template-columns: 1fr; }
   .stratum--accent { padding: 4rem 5vw; }
@@ -604,6 +707,20 @@ body {
         <p>一机一卡一号独立环境。优先使用4G/5G蜂窝数据，严禁公共WiFi、共享热点。多账号需独立设备且间隔1米以上，避免信号关联触发风控。</p>
       </div>
     </div>
+    <div class="stratum__body">
+      <div class="stratum__card">
+        <div class="stratum__card-icon">➌</div>
+        <h3>Day 4-5 · 成长筛选期</h3>
+        <p><strong>场观目标：3000-30000人</strong><br>
+        平台筛选高潜力直播间。核心动作：优化转化漏斗、稳定排品节奏、强化人设IP。此阶段数据决定能否进入下一流量池。</p>
+      </div>
+      <div class="stratum__card">
+        <div class="stratum__card-icon">➍</div>
+        <h3>Day 6-7 · 综合爆发期</h3>
+        <p><strong>场观目标：30000+人</strong><br>
+        直播间进入综合爆发。建立付费+自然流量双引擎，测试多品类承接能力，巩固账号标签权重。注意掉层红线：违规频次过高、转化率骤降、标签漂移。</p>
+      </div>
+    </div>
     <div class="stratum__highlight">
       <div class="stratum__highlight-num">3 DAYS</div>
       <div class="stratum__highlight-content">
@@ -632,6 +749,7 @@ body {
         <div class="stratum__card-icon">◉</div>
         <h3>无标签的后果</h3>
         <p>无标签直播间仅能获得开播初始的一波流量，后续会出现断流情况。冷启动期算法模型未建立，泛流量会彻底打乱账号标签。</p>
+        <p style="margin-top:1rem"><strong>标题设置方法</strong><br>标题帮助平台识别内容方向，同时在公域流量池筛选感兴趣的用户。标题是整场直播的核心提炼，不能与直播内容脱节。画面打标签的核心是设置清晰的直播标题，同时保证画面质感提升用户停留意愿。</p>
       </div>
     </div>
   </div>
@@ -649,17 +767,19 @@ body {
       <div class="stratum__card">
         <div class="stratum__card-icon">◆</div>
         <h3>人 — 直播的灵魂</h3>
-        <p>人设定位决定信任感。案例分析：普通宝妈亲民生活型人设——居家宝妈+生活好物分享+真实育儿，温柔亲切、接地气、素颜淡妆、居家感。</p>
+        <p>人设定位决定信任感。用真实共情拉近距离，建立普通人信任感，拉高直播间停留、带动自然复购和转化。</p>
+        <p style="margin-top:1rem"><strong>案例一·普通宝妈</strong><br>居家宝妈+生活好物分享+真实育儿。温柔亲切、接地气、素颜淡妆，与家居好物、母婴用品、生鲜食品调性高度契合。用宝妈视角分享真实生活痛点，不讲空洞话术，只讲自用感受。</p>
+        <p style="margin-top:1rem"><strong>案例二·零食主播</strong><br>资深吃货+零食测评官+高性价比零食甄选师。活泼亲切、元气接地气、穿搭休闲日常，与网红零食、休闲小吃、居家解馋食品调性完美契合。</p>
       </div>
       <div class="stratum__card">
         <div class="stratum__card-icon">■</div>
         <h3>货 — 选品与定价</h3>
-        <p>商品价格阶梯合理，福利款+主推款+利润款结构化布局。橱窗商品需与直播间定位一致，避免上下架频繁触发审核。</p>
+        <p>商品价格阶梯合理，福利款+主推款+利润款结构化布局。橱窗商品需与直播间定位一致，避免上下架频繁触发审核。橱窗带货开通需完成实名认证+缴纳保证金，商品来源包括精选联盟、自有店铺、定向高佣链接。</p>
       </div>
       <div class="stratum__card">
         <div class="stratum__card-icon">▲</div>
         <h3>场 — 场景化呈现</h3>
-        <p>画面简洁统一，与领域定位匹配。知识类用纯色背景墙+书架，美食类用整洁厨房。避免杂乱背景、动态背景、虚拟背景（2026年被重点风控）。</p>
+        <p>画面简洁统一，与领域定位匹配。知识类用纯色背景墙+书架，美食类用整洁厨房。避免杂乱背景、动态背景、虚拟背景（2026年被重点风控）。<br><br><strong>常见场景问题</strong>：背景杂乱堆放无关物品、动态虚拟背景触发风控、灯光导致面部阴影过曝。建议用固定机位+统一背景降低风控风险。</p>
       </div>
     </div>
   </div>
@@ -715,8 +835,22 @@ body {
       <div class="stratum__card">
         <div class="stratum__card-icon">➋</div>
         <h3>Day 2-3 · 流量试探期</h3>
-        <p><strong>场观目标：500-2000人</strong><br>
+        <p><strong>场观目标：500-3000人</strong><br>
         平台开始小范围推送。验证标签准确性、优化停留时长、观察转化数据，根据实时数据调整话术和排品节奏。</p>
+      </div>
+    </div>
+    <div class="stratum__body">
+      <div class="stratum__card">
+        <div class="stratum__card-icon">➌</div>
+        <h3>Day 4-5 · 成长筛选期</h3>
+        <p><strong>场观目标：3000-30000人</strong><br>
+        平台筛选高潜力直播间。核心动作：优化转化漏斗、稳定排品节奏、强化人设IP。此阶段数据决定能否进入下一流量池。</p>
+      </div>
+      <div class="stratum__card">
+        <div class="stratum__card-icon">➍</div>
+        <h3>Day 6-7 · 综合爆发期</h3>
+        <p><strong>场观目标：30000+人</strong><br>
+        直播间进入综合爆发。建立付费+自然流量双引擎，测试多品类承接能力，巩固账号标签权重。注意掉层红线：违规频次过高、转化率骤降、标签漂移。</p>
       </div>
     </div>
     <div class="stratum__highlight">
