@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DOUYIN · 直播增长白皮书</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@200;300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
 :root {
-  --accent-orange: #FF8C42;
-  --accent-cyan: #00D4AA;
-  --accent-amber: #FFD700;
-  --accent-magenta: #FF3366;
-  --accent-purple: #8B5CF6;
+  --accent-orange: #FF0080;
+  --accent-cyan: #CCFF00;
+  --accent-amber: #00E5FF;
+  --accent-magenta: #7B2FBE;
+  --accent-purple: #FF00AA;
   --text-primary: rgba(255,255,255,0.92);
   --text-secondary: rgba(255,255,255,0.9);
   --text-muted: rgba(255,255,255,0.55);
@@ -35,12 +35,324 @@ html { scroll-behavior: smooth; }
 .stratum--magenta .stratum__title-group h2 { color: var(--accent-magenta); }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background: #050505;
+  font-family: 'Inter', 'Noto Sans SC', sans-serif;
+  background: #000000;
   color: #fff;
+/* === CYBERPUNK OVERLAY === */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg,
+    transparent, transparent 2px,
+    rgba(255,0,128,0.015) 2px, rgba(255,0,128,0.015) 3px);
+  opacity: 0.3;
+}
+
+/* Neon text glow */
+.hero__word--protect {
+  text-shadow: 0 0 40px rgba(255,0,128,0.25), 0 0 80px rgba(255,0,128,0.1) !important;
+}
+.hero__word--data {
+  text-shadow: 0 0 40px rgba(0,229,255,0.2), 0 0 80px rgba(0,229,255,0.1) !important;
+}
+
+/* Cyberpunk border glow on cards */
+.stratum__card {
+  border-color: rgba(255,0,128,0.08) !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.stratum__card:hover {
+  border-color: rgba(255,0,128,0.3) !important;
+  box-shadow: 0 0 20px rgba(255,0,128,0.06), inset 0 0 20px rgba(255,0,128,0.02);
+}
+
+/* Stagger accent */
+.stratum--stagger .stratum__card:first-child {
+  border-color: rgba(0,229,255,0.12) !important;
+}
+.stratum--stagger-reverse .stratum__card:last-child {
+  border-color: rgba(0,229,255,0.12) !important;
+}
+
+/* Stat card neon */
+.stratum__hero-card {
+  border-color: rgba(255,0,128,0.1) !important;
+  box-shadow: 0 0 30px rgba(255,0,128,0.03);
+}
+.stratum__hero-card .big-num {
+  text-shadow: 0 0 20px rgba(255,0,128,0.2), 0 0 40px rgba(255,0,128,0.05);
+}
+
+/* Highlight card */
+.stratum__highlight {
+  border-color: rgba(0,229,255,0.1) !important;
+}
+.stratum__highlight-num {
+  text-shadow: 0 0 30px rgba(0,229,255,0.15);
+}
+
+/* Depth track cyberpunk */
+.strata__depth-marker {
+  border-color: rgba(255,0,128,0.15) !important;
+  box-shadow: 0 0 6px rgba(255,0,128,0.1);
+}
+
+/* Hero scanlines - enhance */
+.hero__scanline {
+  background: repeating-linear-gradient(0deg,
+    transparent, transparent 3px,
+    rgba(255,0,128,0.012) 3px, rgba(255,0,128,0.012) 4px) !important;
+}
+
+/* Progress bars for each stratum */
+.stratum::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 6vw;
+  width: 40px; height: 1px;
+  background: linear-gradient(90deg, rgba(255,0,128,0.2), transparent);
+}
+
+/* Neon grid enhancement */
+.hero__bg-grid {
+  background-image:
+    linear-gradient(90deg, rgba(255,0,128,0.04) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+  opacity: 0.5;
+}
+
+/* Orbitron for headings */
+.stratum__title-group h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.stratum__number {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+}
+
+.hero__word {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.stratum__highlight-num {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.stratum__hero-card .big-num {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.hero__stat-left .num,
+.hero__stat-right .num {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Glitch keyframes */
+@keyframes glitch {
+  0% { clip-path: inset(0 0 98% 0); }
+  5% { clip-path: inset(10% 0 80% 0); }
+  10% { clip-path: inset(30% 0 50% 0); }
+  15% { clip-path: inset(0 0 100% 0); }
+  100% { clip-path: inset(0 0 100% 0); }
+}
+
+.hero__word--protect,
+.hero__word--data {
+  position: relative;
+}
+
+.hero__word--protect::after,
+.hero__word--data::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  top: 0;
+  color: rgba(0,229,255,0.15);
+  animation: glitch 3s infinite;
+}
+
+/* Card icon replace with cyber symbols */
+.stratum__card-icon {
+  opacity: 0.5;
+}
+
+/* Stratum accent border glow */
+.stratum--accent {
+  position: relative;
+  box-shadow: 0 0 40px rgba(255,0,128,0.02);
+}
+
+/* Divider line */
+.strata__divider-line {
+  background: linear-gradient(90deg, rgba(255,0,128,0.04) 0%, rgba(0,229,255,0.02) 50%, transparent 100%) !important;
+}
+
   overflow-x: hidden;
 }
-::selection { background: rgba(255, 255, 255, 0.15); color: #fff; }
+::selection { background: rgba(255, 255, 255, 0.15); color: #fff;
+/* === CYBERPUNK OVERLAY === */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg,
+    transparent, transparent 2px,
+    rgba(255,0,128,0.015) 2px, rgba(255,0,128,0.015) 3px);
+  opacity: 0.3;
+}
+
+/* Neon text glow */
+.hero__word--protect {
+  text-shadow: 0 0 40px rgba(255,0,128,0.25), 0 0 80px rgba(255,0,128,0.1) !important;
+}
+.hero__word--data {
+  text-shadow: 0 0 40px rgba(0,229,255,0.2), 0 0 80px rgba(0,229,255,0.1) !important;
+}
+
+/* Cyberpunk border glow on cards */
+.stratum__card {
+  border-color: rgba(255,0,128,0.08) !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.stratum__card:hover {
+  border-color: rgba(255,0,128,0.3) !important;
+  box-shadow: 0 0 20px rgba(255,0,128,0.06), inset 0 0 20px rgba(255,0,128,0.02);
+}
+
+/* Stagger accent */
+.stratum--stagger .stratum__card:first-child {
+  border-color: rgba(0,229,255,0.12) !important;
+}
+.stratum--stagger-reverse .stratum__card:last-child {
+  border-color: rgba(0,229,255,0.12) !important;
+}
+
+/* Stat card neon */
+.stratum__hero-card {
+  border-color: rgba(255,0,128,0.1) !important;
+  box-shadow: 0 0 30px rgba(255,0,128,0.03);
+}
+.stratum__hero-card .big-num {
+  text-shadow: 0 0 20px rgba(255,0,128,0.2), 0 0 40px rgba(255,0,128,0.05);
+}
+
+/* Highlight card */
+.stratum__highlight {
+  border-color: rgba(0,229,255,0.1) !important;
+}
+.stratum__highlight-num {
+  text-shadow: 0 0 30px rgba(0,229,255,0.15);
+}
+
+/* Depth track cyberpunk */
+.strata__depth-marker {
+  border-color: rgba(255,0,128,0.15) !important;
+  box-shadow: 0 0 6px rgba(255,0,128,0.1);
+}
+
+/* Hero scanlines - enhance */
+.hero__scanline {
+  background: repeating-linear-gradient(0deg,
+    transparent, transparent 3px,
+    rgba(255,0,128,0.012) 3px, rgba(255,0,128,0.012) 4px) !important;
+}
+
+/* Progress bars for each stratum */
+.stratum::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 6vw;
+  width: 40px; height: 1px;
+  background: linear-gradient(90deg, rgba(255,0,128,0.2), transparent);
+}
+
+/* Neon grid enhancement */
+.hero__bg-grid {
+  background-image:
+    linear-gradient(90deg, rgba(255,0,128,0.04) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+  opacity: 0.5;
+}
+
+/* Orbitron for headings */
+.stratum__title-group h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.stratum__number {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+}
+
+.hero__word {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.stratum__highlight-num {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.stratum__hero-card .big-num {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.hero__stat-left .num,
+.hero__stat-right .num {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Glitch keyframes */
+@keyframes glitch {
+  0% { clip-path: inset(0 0 98% 0); }
+  5% { clip-path: inset(10% 0 80% 0); }
+  10% { clip-path: inset(30% 0 50% 0); }
+  15% { clip-path: inset(0 0 100% 0); }
+  100% { clip-path: inset(0 0 100% 0); }
+}
+
+.hero__word--protect,
+.hero__word--data {
+  position: relative;
+}
+
+.hero__word--protect::after,
+.hero__word--data::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  top: 0;
+  color: rgba(0,229,255,0.15);
+  animation: glitch 3s infinite;
+}
+
+/* Card icon replace with cyber symbols */
+.stratum__card-icon {
+  opacity: 0.5;
+}
+
+/* Stratum accent border glow */
+.stratum--accent {
+  position: relative;
+  box-shadow: 0 0 40px rgba(255,0,128,0.02);
+}
+
+/* Divider line */
+.strata__divider-line {
+  background: linear-gradient(90deg, rgba(255,0,128,0.04) 0%, rgba(0,229,255,0.02) 50%, transparent 100%) !important;
+}
+ }
 
 /* ============ Hero ============ */
 .hero {
@@ -48,7 +360,7 @@ body {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background: #050505;
+  background: #000000;
 }
 
 .hero__bg {
@@ -62,8 +374,8 @@ body {
 }
 .hero__bg-layer--1 {
   background:
-    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(255,255,255,0.03) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 50% at 80% 30%, rgba(180,140,80,0.04) 0%, transparent 60%);
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(255,0,128,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 80% 30%, rgba(0,229,255,0.05) 0%, transparent 60%);
 }
 .hero__bg-layer--2 {
   background-image:
@@ -138,7 +450,7 @@ body {
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, #fff 30%, var(--accent-cyan));
+  background: linear-gradient(135deg, #fff 30%, var(--accent-orange));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -163,7 +475,7 @@ body {
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, #FF8C42 20%, rgba(255,255,255,0.55));
+  background: linear-gradient(135deg, #FF0080 20%, rgba(255,255,255,0.55));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -173,7 +485,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255,140,66,0.6);
+  color: rgba(255,0,128,0.5);
   margin-top: 0.4rem;
 }
 
@@ -199,6 +511,7 @@ body {
   left: 18vw;
   top: 18vh;
   background: linear-gradient(180deg, #ffffff 0%, var(--accent-orange) 100%);
+  text-shadow: 0 0 30px rgba(255,0,128,0.3), 0 0 60px rgba(255,0,128,0.1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -210,7 +523,8 @@ body {
   font-size: 16vw;
   right: 4vw;
   bottom: 25vh;
-  background: linear-gradient(180deg, var(--accent-cyan) 0%, #ffffff 100%);
+  background: linear-gradient(180deg, var(--accent-amber) 0%, #ffffff 100%);
+  text-shadow: 0 0 30px rgba(0,229,255,0.3), 0 0 60px rgba(0,229,255,0.1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -309,7 +623,7 @@ body {
 }.strata {
   position: relative;
   z-index: 2;
-  background: #050505;
+  background: #000000;
 }
 
 .strata__divider {
@@ -382,11 +696,11 @@ body {
 
 .stratum__
 :root {
-  --accent-orange: #FF8C42;
-  --accent-cyan: #00D4AA;
-  --accent-amber: #FFD700;
-  --accent-magenta: #FF3366;
-  --accent-purple: #8B5CF6;
+  --accent-orange: #FF0080;
+  --accent-cyan: #CCFF00;
+  --accent-amber: #00E5FF;
+  --accent-magenta: #7B2FBE;
+  --accent-purple: #FF00AA;
   --text-primary: rgba(255,255,255,0.92);
   --text-secondary: rgba(255,255,255,0.9);
   --text-muted: rgba(255,255,255,0.55);
@@ -472,11 +786,11 @@ body {
 
 .stratum--full .stratum__
 :root {
-  --accent-orange: #FF8C42;
-  --accent-cyan: #00D4AA;
-  --accent-amber: #FFD700;
-  --accent-magenta: #FF3366;
-  --accent-purple: #8B5CF6;
+  --accent-orange: #FF0080;
+  --accent-cyan: #CCFF00;
+  --accent-amber: #00E5FF;
+  --accent-magenta: #7B2FBE;
+  --accent-purple: #FF00AA;
   --text-primary: rgba(255,255,255,0.92);
   --text-secondary: rgba(255,255,255,0.9);
   --text-muted: rgba(255,255,255,0.55);
@@ -510,7 +824,7 @@ body {
 }
 .stratum--accent .stratum__card {
   border-color: rgba(0,212,170,0.15);
-  background: rgba(255,140,66,0.03);
+  background: rgba(255,0,128,0.04);
 }
 
 .stratum--accent .stratum__title-group h2 {
@@ -532,7 +846,7 @@ body {
   font-weight: 900;
   letter-spacing: -0.06em;
   line-height: 1;
-  background: linear-gradient(135deg, #FFD700, rgba(255,255,255,0.1));
+  background: linear-gradient(135deg, #00E5FF, rgba(255,255,255,0.1));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -543,7 +857,7 @@ body {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 1rem;
-  color: #FFD700;
+  color: #00E5FF;
 }
 .stratum__highlight-content p {
   font-size: 0.75rem;
@@ -598,11 +912,11 @@ body {
   .stratum { padding: 0 5vw; }
   .stratum__
 :root {
-  --accent-orange: #FF8C42;
-  --accent-cyan: #00D4AA;
-  --accent-amber: #FFD700;
-  --accent-magenta: #FF3366;
-  --accent-purple: #8B5CF6;
+  --accent-orange: #FF0080;
+  --accent-cyan: #CCFF00;
+  --accent-amber: #00E5FF;
+  --accent-magenta: #7B2FBE;
+  --accent-purple: #FF00AA;
   --text-primary: rgba(255,255,255,0.92);
   --text-secondary: rgba(255,255,255,0.9);
   --text-muted: rgba(255,255,255,0.55);
@@ -645,13 +959,13 @@ body { grid-template-columns: 1fr; }
   <div class="hero__corner hero__corner--br"></div>
 
   <div class="hero__eyebrow">
-    抖音直播增长白皮书
-    <span>2026 EDITION</span>
+    CYBERPUNK · 抖音直播
+    <span>2026 EDITION // v2.0</span>
   </div>
 
   <div class="hero__content">
-    <div class="hero__word hero__word--protect">PROTECT</div>
-    <div class="hero__word hero__word--data">DATA</div>
+    <div class="hero__word hero__word--protect" data-text="PROTECT">PROTECT</div>
+    <div class="hero__word hero__word--data" data-text="DATA">DATA</div>
 
     <div class="hero__sub">
       <div class="line"></div>
@@ -679,7 +993,7 @@ body { grid-template-columns: 1fr; }
 <section class="strata" id="strata">
   <div class="strata__divider">
     <div class="strata__divider-line"></div>
-    <span class="strata__divider-label">DATA STRATUM · 地质层析</span>
+    <span class="strata__divider-label">CYBER DECK · 地层破解</span>
   </div>
 
   <!-- Stratum 1: Account Prep -->
@@ -964,8 +1278,8 @@ body { grid-template-columns: 1fr; }
 
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
-  <div class="brand">Douyin · 直播增长白皮书 2026</div>
-  <p>基于最新算法分析与实操经验整理 · 适合新号冷启动至规模化运营全周期</p>
+  <div class="brand">// CYBERPUNK · 抖音直播白皮书 2026 //</div>
+  <p>基于最新AI-9.0算法分析与实操经验整理 · v2.0 赛博加速版</p>
 </footer>
 
 <script>
